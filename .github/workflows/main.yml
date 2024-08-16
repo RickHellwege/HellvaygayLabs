@@ -1,0 +1,45 @@
+name: Blazor WASM SinglePage
+
+on:
+  push:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Install .NET WASM Build Tools
+      run: dotnet workload install wasm-tools
+    - name: Publish .NET Core Project
+      run: dotnet publish ./HellvaygayLabs/HellvaygayLabs.csproj -c:Release -p:GHPages=true -o dist/HellvaygayLabs --nologo
+    - name: Change base-tag in index.html from / to HellvaygayLabs
+      run: sed -i 's/<base href="\/" \/>/<base href="\/HellvaygayLabs\/" \/>/g' dist/HellvaygayLabs/wwwroot/index.html
+    
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: dist/HellvaygayLabs/wwwroot
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
