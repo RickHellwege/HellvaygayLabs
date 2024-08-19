@@ -1,0 +1,45 @@
+﻿@page "/"
+@using System.Timers;
+
+<PageTitle>It's Partytime!'</PageTitle>
+
+<div class="countdown">
+    <span class="digit">@timeToParty.Days</span>
+    <span class="digit spacer">:</span>
+    <span class="digit">@timeToParty.Hours</span>
+    <span class="digit spacer">:</span>
+    <span class="digit">@timeToParty.Minutes</span>
+    <span class="digit spacer">:</span>
+    <span class="digit">@timeToParty.Seconds</span>
+</div>
+
+@code {
+
+    private static System.Timers.Timer aTimer;
+    private int counter = 10;
+
+    private DateTime party = new DateTime(2024, 10, 19, 18, 0, 0);
+    private TimeSpan timeToParty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        StartTimer();
+    }
+
+    public void StartTimer()
+    {
+        timeToParty = party - DateTime.Now;
+        aTimer = new System.Timers.Timer(1000);
+        aTimer.Elapsed += CountDownTimer;
+        aTimer.Enabled = true;
+    }
+
+    public void CountDownTimer(Object source, ElapsedEventArgs e)
+    {
+        timeToParty = party - DateTime.Now;
+
+        InvokeAsync(StateHasChanged);
+    }
+
+}
+

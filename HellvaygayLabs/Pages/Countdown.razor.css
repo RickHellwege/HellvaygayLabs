@@ -1,0 +1,31 @@
+﻿@font-face {
+    font-family: 'caslonantique';
+    src: url('font/caslonantique.ttf') format('truetype');
+}
+
+.countdown{
+
+    background: black;
+    text-align: center;
+    vertical-align:middle;
+}
+
+.digit {
+    display:inline-block;
+    width:75px;
+    color: #2fff00;
+    font-family: caslonantique;
+    font-size: 80px;
+    
+    
+}
+    .digit:hover {
+        transition: transform 1.0s;
+        transform-style: preserve-3d;
+        transform: rotateX(180deg);
+    }
+
+.spacer {
+    width:15px;
+
+}
