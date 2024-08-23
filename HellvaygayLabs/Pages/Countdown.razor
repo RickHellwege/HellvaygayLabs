@@ -2,15 +2,17 @@
 @using System.Timers;
 
 <PageTitle>It's Partytime!'</PageTitle>
-
-<div class="countdown">
-    <span class="digit">@timeToParty.Days</span>
-    <span class="digit spacer">:</span>
-    <span class="digit">@timeToParty.Hours</span>
-    <span class="digit spacer">:</span>
-    <span class="digit">@timeToParty.Minutes</span>
-    <span class="digit spacer">:</span>
-    <span class="digit">@timeToParty.Seconds</span>
+<div class="page">
+    <div class="countdown">
+        <span class="digit">@timeToParty.Days</span>
+        <span class="digit spacer">:</span>
+        <span class="digit">@timeToParty.Hours</span>
+        <span class="digit spacer">:</span>
+        <span class="digit">@timeToParty.Minutes</span>
+        <span class="digit spacer">:</span>
+        <span class="digit">@timeToParty.Seconds</span>
+    </div>
+    <div class="stripes"></div>
 </div>
 
 @code {
