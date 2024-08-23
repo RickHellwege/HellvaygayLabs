@@ -2,14 +2,24 @@
     font-family: 'caslonantique';
     src: url('font/CaslonAntique.ttf') format('truetype');
 }
+
 .page {
+    --bgGreen: #009748;
+    --bgPurple: #9600ff;
     height: 100vh;
-    background: black;
+    background: white;
 }
 
-.stripes {
-    height: 100%;
-    background: repeating-linear-gradient( 90deg, white, white 100px, transparent 100px, transparent 200px );
+.blackStripes {
+    height: 50%;
+    background: repeating-linear-gradient( 90deg, black, black 100px, transparent 100px, transparent 200px );
+    opacity: 0.0;
+    animation: gradient 10s ease-in 0s infinite alternate;
+}
+
+.greenStripes {
+    height: 30%;
+    background: repeating-linear-gradient( 90deg, var(--bgGreen), var(--bgGreen) 100px, transparent 100px, transparent 200px );
     opacity: 0.0;
     animation: gradient 10s ease-in 0s infinite alternate;
 }
@@ -29,26 +39,26 @@
 }
 
 .countdown {
+    height: 20%;
     background: black;
-    opacity: 1.0 !important;
-    text-align: center;
-    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
 }
 
 .digit {
-    display:inline-block;
-    width:75px;
-    color: #2fff00;
+    display: inline-block;
+    width: 75px;
+    color: var(--bgGreen);
     font-family: caslonantique;
     font-size: 80px;
-    
-    
 }
     .digit:hover {
         transition: transform 1.0s;
         transform-style: preserve-3d;
         transform: rotateX(180deg);
-        color: #9600ff;
+        color: var(--bgPurple);
     }
 
 .spacer {

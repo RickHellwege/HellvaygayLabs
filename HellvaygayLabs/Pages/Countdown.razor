@@ -1,18 +1,19 @@
 ﻿@page "/"
 @using System.Timers;
 
-<PageTitle>It's Partytime!'</PageTitle>
+<PageTitle>It's Showtime!'</PageTitle>
 <div class="page">
+    <div class="blackStripes" />
     <div class="countdown">
-        <span class="digit">@timeToParty.Days</span>
+        <span class="digit">@timeToParty.Days.ToString("00")</span>
         <span class="digit spacer">:</span>
-        <span class="digit">@timeToParty.Hours</span>
+        <span class="digit">@timeToParty.Hours.ToString("00")</span>
         <span class="digit spacer">:</span>
-        <span class="digit">@timeToParty.Minutes</span>
+        <span class="digit">@timeToParty.Minutes.ToString("00")</span>
         <span class="digit spacer">:</span>
-        <span class="digit">@timeToParty.Seconds</span>
+        <span class="digit">@timeToParty.Seconds.ToString("00")</span>
     </div>
-    <div class="stripes"></div>
+    <div class="greenStripes"/>
 </div>
 
 @code {
