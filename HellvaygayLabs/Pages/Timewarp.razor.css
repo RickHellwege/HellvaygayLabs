@@ -1,0 +1,37 @@
+﻿@font-face {
+    font-family: 'caslonantique';
+    src: url('font/CaslonAntique.ttf') format('truetype');
+    
+}
+
+.page {
+    height: 100vh;
+    color: white;
+    background: black;
+    font-family: caslonantique;
+}
+
+.page h3 {
+    text-align:center;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Sets container height to full viewport height for vertical centering */
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+body {
+}
