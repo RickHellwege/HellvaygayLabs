@@ -11,7 +11,7 @@
     font-family: caslonantique;
 }
 
-.page h3 {
+.page h2 {
     text-align:center;
 }
 
@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
-    height: 100vh; /* Sets container height to full viewport height for vertical centering */
+
 }
 
 .blink_me {
