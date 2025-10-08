@@ -1,6 +1,7 @@
 name: Blazor WASM SinglePage
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "master" ]
 
@@ -24,6 +25,10 @@ jobs:
       run: dotnet workload install wasm-tools
     - name: Publish .NET Core Project
       run: dotnet publish ./HellvaygayLabs/HellvaygayLabs.csproj -c:Release -p:GHPages=true -o dist/HellvaygayLabs --nologo
+      env:
+        TELERIK_NUGET_KEY: ${{ secrets.TELERIK_NUGET_KEY }}
+        TELERIK_LICENSE: ${{ secrets.TELERIK_LICENSE_KEY }}
+        
 
 # NOT NEEDED FOR CUSTOM DOMAINS
 #    - name: Change base-tag in index.html from / to HellvaygayLabs
