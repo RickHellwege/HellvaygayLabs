@@ -15,6 +15,12 @@
                 allowfullscreen>
         </iframe>
     </div>
+
+
+    <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                   OnClick="@SayHelloHandler">Say Hello To My Little Friend</TelerikButton>
+
+    <p>@HelloString</p>
 </div>
 
 
@@ -23,5 +29,14 @@
 
 @code {
 
+    private MarkupString HelloString { get; set; }
 
+    private void SayHelloHandler()
+    {
+        string msg = $"Hello from <strong>Telerik UI for Blazor</strong> at {DateTime.Now.ToString("HH:mm:ss")}!" +
+        "<br /> Now you can use C# to write front-end!";
+
+        HelloString = new MarkupString(msg);
+
+    }
 }
