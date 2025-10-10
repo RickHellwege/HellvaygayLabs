@@ -1,6 +1,11 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color:black;
+    background-color: var(--kendo-color-app-surface, #0B1A0B);
+}
+
+.appdiv {
+    position:relative;
+    height: 100vh;
 }
 
 
