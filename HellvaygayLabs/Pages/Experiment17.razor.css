@@ -1,25 +1,30 @@
 ﻿@font-face {
     font-family: 'caslonantique';
     src: url('font/CaslonAntique.ttf') format('truetype');
-    
 }
 
 .page {
     color: var(--kendo-color-on-app-surface);
     font-family: caslonantique;
-    height:100%
+
+
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    gap: 2em;
+
 }
 
-.page h2 {
-    text-align:center;
-}
-
-.video-container {
+.main-container, .side-container {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+    gap: 1em;
 }
+
+
 
 .blink_me {
     animation: blinker 1s linear infinite;
