@@ -102,7 +102,8 @@
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
-        [EmailAddress(ErrorMessage = "Invalid email format.")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org)$",
+                       ErrorMessage = "Email must be a valid .com, .net, or .org address.")]
         public string Email { get; set; }
 
         public string Message { get; set; }
