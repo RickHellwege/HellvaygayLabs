@@ -1,0 +1,113 @@
+﻿@page "/"
+@using System.ComponentModel.DataAnnotations
+@inject HttpClient Http
+<div class="page">
+
+    <div class="main-container">
+
+        <h2>Automatic Lab Recording: <span class="blink_me">Experiment 17</span></h2>
+
+        <iframe width="900" height="700"
+                src="https://www.youtube.com/embed/c0P5oTvw8u8?si=VI64I7YPdUtMWJvA"
+                title="Experiment 17" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+    <div class="side-container">
+
+        <div class="rsvp-button-container">
+            <TelerikButton Size="@ThemeConstants.Button.Size.Large" OnClick="@ToggleWindowVisibility">RESPOND HERE</TelerikButton>
+        </div>
+        <div class="start-time">
+            <h4>Start Time: 5:00 PM</h4>
+        </div>
+    </div>
+
+    <TelerikWindow Modal="true" @bind-Visible="@IsVisible">
+        <WindowTitle>
+            <strong>Respond to Dr. Hellvaygay</strong>
+        </WindowTitle>
+        <WindowActions>
+            <WindowAction Name="Close" />
+        </WindowActions>
+        <WindowContent>
+            <TelerikForm Model="@rsvp" OnValidSubmit="@OnValidSubmitHandler">
+                <FormValidation>
+                    <DataAnnotationsValidator />
+                </FormValidation>
+                <FormItems>
+                    <FormItem Field="@nameof(RSVP.Name)" LabelText="Name" />
+                    <FormItem Field="@nameof(RSVP.Email)" LabelText="Email" />
+                    <FormItem Field="@nameof(RSVP.Message)" LabelText="Message (optional)" />
+                    <FormItem Field="@nameof(RSVP.Answer)">
+                        <Template>
+                            <label for="firsttime" class="k-label k-form-label">Your Answer</label>
+                            <div class="k-form-field-wrap">
+                                <TelerikRadioGroup Data="@RadioGroupData" @bind-Value="@rsvp.Answer" />
+                            </div>
+                        </Template>
+                    </FormItem>
+
+                </FormItems>
+            </TelerikForm>
+
+        </WindowContent>
+
+    </TelerikWindow>
+
+</div>
+
+@code {
+
+    private bool IsVisible { get; set; } = false;
+    private void ToggleWindowVisibility()
+    {
+        IsVisible = !IsVisible;
+    }
+
+    private async Task OnValidSubmitHandler()
+    {
+        // Send data to your API
+        var response = await Http.PostAsJsonAsync("https://formspree.io/f/mnngoblv", rsvp);
+
+        if (response.IsSuccessStatusCode)
+        {
+            // Handle successful submission (e.g., show a success message, redirect)
+            Console.WriteLine("Form submitted successfully!");
+            rsvp = new RSVP(); // Clear the form
+            IsVisible = false; // Close the window
+        }
+        else
+        {
+            // Handle error
+            Console.WriteLine($"Error submitting form: {response.StatusCode}");
+            rsvp = new RSVP(); // Clear the form
+            IsVisible = false; // Close the window
+        }
+    }
+
+
+    private IEnumerable<string> RadioGroupData { get; set; } = new List<string> {
+        "I will help save Hellvaygay Labs (Attending)",
+        "I will leave Dr. Hellvaygay to his fate (Not Attending)"};
+
+
+    public RSVP rsvp = new RSVP();
+
+    public class RSVP
+    {
+        [Required(ErrorMessage = "Name is required")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        public string Email { get; set; }
+
+        public string Message { get; set; }
+
+        [Required(ErrorMessage = "RSVP Answer is required")]
+        public string Answer { get; set; }
+    }
+
+}

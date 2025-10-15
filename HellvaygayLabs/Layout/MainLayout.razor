@@ -10,16 +10,17 @@
         right: 0;
     }
 
-        .drawerButton img {
-            display: flex;
-            width: 32px;
-            height: 32px;
-            justify-content: center;
-        }
+    .drawerButton img {
+        display: flex;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+    }
 
 </style>
 
 <TelerikRootComponent>
+    <div class="drawer-container">
     <TelerikDrawer Data="@NavigablePages"
                    @bind-Expanded="@DrawerExpanded"
                    MiniMode="false"
@@ -27,12 +28,11 @@
                    @ref="@DrawerRef">
         <DrawerContent>
             @((MarkupString)@frank)
-            @*                 <TelerikButton Class="drawerButton" OnClick="@ToggleDrawer" FillMode="@ThemeConstants.Button.FillMode.Clear">
-                    <img src="favicon.png" />
-                </TelerikButton> *@
+
             @Body
         </DrawerContent>
     </TelerikDrawer>
+    </div>
 
     <TelerikButton Class="drawerButton" OnClick="@ToggleDrawer" FillMode="@ThemeConstants.Button.FillMode.Clear">
         <img src="favicon.png" />
@@ -51,6 +51,7 @@
         new DrawerItem { Text = "Home", Url = "/", Icon = SvgIcon.Home.Name },
         new DrawerItem { Separator = true },
         new DrawerItem { Text = "Countdown", Url = "countdown", Icon = SvgIcon.Plus.Name },
+        new DrawerItem { Text = "Timewarp", Url = "timewarp", Icon = SvgIcon.Plus.Name },
         };
 
         public class DrawerItem
