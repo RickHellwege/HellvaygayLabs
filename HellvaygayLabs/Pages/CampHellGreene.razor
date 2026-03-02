@@ -1,0 +1,838 @@
+﻿@page "/CampHellGreene"
+@using System.ComponentModel.DataAnnotations
+@inject HttpClient Http
+
+<PageTitle>Camp HellGreene Lake Wedding Reception</PageTitle>
+
+<div class="camp-hellgreene">
+    <header class="camp-header">
+        <h1 class="camp-title">CAMP HELLGREENE LAKE</h1>
+        <p class="camp-subtitle">You're Invited to Survive the Reception</p>
+        <p class="camp-date">
+            <strong>-Reception Only-</strong><br />
+            Saturday, October 10, 2026 at 5:00 PM
+        </p>
+        <p class="camp-date">
+            <strong>-Full Camp Experience-</strong><br />
+            Friday, October 9 at 3:00 PM - Monday, October 12 at 11:00 AM
+        </p>
+
+    </header>
+
+    <div class="camp-sign">
+        <img src="images/CampHellGreeneSign.png" alt="Camp HellGreene Lake Sign" />
+    </div>
+
+    <section class="adventure-section">
+        <h2>🧭 Choose Your Own Adventure</h2>
+        <div class="adventure-grid">
+            <a href="/CampHellGreene#local-accommodations" class="adventure-box">
+                <h3>Reception Only</h3>
+                <p>Stay off-site and join us Saturday at 5PM for Reception</p>
+            </a>
+            <a href="/CampHellGreene#sleepaway-section" class="adventure-box">
+                <h3>Weekend Camp Experience</h3>
+                <p>Stay on-site at Bethany Birch for a weekend of thrills, chills, and surprises.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="warning-section">
+        <div class="warning-box">
+            <h2>📵 WARNING 📵</h2>
+            <p>There is NO CELL SERVICE at the camp. Print your driving directions and map or you may never escape Route 100...</p>
+            <p><em>WiFi available once on camp grounds... if you make it that far.</em></p>
+        </div>
+    </section>
+
+    <section class="location-section">
+        <h2>📍 The Location (If You Dare)</h2>
+        <div class="info-box">
+            <strong>Bethany Birches Camp</strong><br />
+            2610 Lynds Hill Road<br />
+            Plymouth, VT 05056
+        </div>
+
+    </section>
+
+    <section class="local-accommodations" id="local-accommodations">
+        <h2>🏨 Local Accommodations</h2>
+        <p class="accommodations-intro">Hotels ordered by distance from Camp Bethany Birch:</p>
+        
+        <div class="hotel-grid">
+            <div class="hotel-card">
+                <h3>Killington Mountain Lodge</h3>
+                <p class="hotel-collection">Tapestry Collection by Hilton</p>
+                <p class="hotel-distance">~10.5 miles</p>
+                <a href="https://killingtonmountainlodge.com" target="_blank" class="hotel-link">killingtonmountainlodge.com</a>
+            </div>
+
+            <div class="hotel-card">
+                <h3>The Vermont Inn</h3>
+                <p class="hotel-distance">~13.3 miles</p>
+                <a href="https://vermontinn.com" target="_blank" class="hotel-link">vermontinn.com</a>
+            </div>
+
+            <div class="hotel-card">
+                <h3>Jackson Gore Inn</h3>
+                <p class="hotel-collection">at Okemo Mountain Resort</p>
+                <p class="hotel-distance">~14.5 miles</p>
+                <a href="https://okemo.com/jackson-gore-inn" target="_blank" class="hotel-link">okemo.com/jackson-gore-inn</a>
+            </div>
+
+            <div class="hotel-card">
+                <h3>Mountain Lodge at Okemo</h3>
+                <p class="hotel-distance">~15.0 miles</p>
+                <a href="https://okemo.com/mountain-lodge" target="_blank" class="hotel-link">okemo.com/mountain-lodge</a>
+            </div>
+
+            <div class="hotel-card">
+                <h3>Okemo Mountain Resort</h3>
+                <p class="hotel-distance">~15.0 miles</p>
+                <a href="https://okemo.com" target="_blank" class="hotel-link">okemo.com</a>
+            </div>
+
+            <div class="hotel-card">
+                <h3>The Governor's Inn</h3>
+                <p class="hotel-distance">~15.5 miles</p>
+                <a href="https://thegovernorsinn.com" target="_blank" class="hotel-link">thegovernorsinn.com</a>
+            </div>
+        </div>
+        <p class="lodging-warning">
+            <strong>⚠️ Book Lodging ASAP!</strong><br />
+            October is peak foliage season on the Route 100 Scenic Byway.<br />
+            Hotels are selling out fast... don't get stuck in the woods!
+        </p>
+    </section>
+
+    <section class="sleepaway-section" id="sleepaway-section">
+        <h2>🏕️ Grown Up Sleepaway Camp</h2>
+        <p class="camp-dates"><strong>Friday, October 9 at 3:00 PM - Monday, October 12 at 11:00 AM</strong></p>
+        <p class="camp-subtitle-text">Indigenous People's Day Weekend</p>
+        
+        <div class="info-box">
+            <h3>Cabin Details</h3>
+            <ul>
+                <li>Heated cabin at an off-season summer camp</li>
+                <li>Sleeps up to 32 brave souls</li>
+                <li>Twin beds in shared rooms and lofts</li>
+                <li>Includes clean blanket, pillow, and pillow case</li>
+                <li>2 indoor bathrooms + bathhouse on grounds</li>
+                <li>Kitchen and basement rec room</li>
+            </ul>
+            
+            <h3>What to Bring</h3>
+            <ul>
+                <li>🛏️ BYO bedding and towels</li>
+                <li>🎒 Your survival kit (just kidding... or are we?)</li>
+            </ul>
+            
+            <div class="cost-box">
+                <strong>Cost:</strong> $150 for the weekend, meals included
+            </div>
+        </div>
+    </section>
+
+    <section class="activities-section">
+        <h2>🎯 Survival Activities</h2>
+        <div class="activities-grid">
+            <div class="activity-card">🎲 Board Games</div>
+            <div class="activity-card">🧗 Indoor Rock Climbing (one day only)</div>
+            <div class="activity-card">🚣 Pond Activities<br/><small>Boats, kayaks, water slide, water trampoline (weather permitting)</small></div>
+            <div class="activity-card">🥾 Hiking Trails</div>
+            <div class="activity-card">🥏 Frisbee Golf</div>
+            <div class="activity-card">⚽ Tetherball</div>
+            <div class="activity-card">🏀 Basketball Court<br/><small>Balls and nets provided</small></div>
+            <div class="activity-card">🔥 Campfires</div>
+            <div class="activity-card">🍺 Drinking<br/><small>Beer & wine allowed. Liquor only at reception with licensed bartender</small></div>
+        </div>
+    </section>
+
+    <section class="travel-section">
+        <h2>🚗 Getting to Camp (Don't Get Lost!)</h2>
+        
+        <div class="travel-info">
+            <h3>Drive Time</h3>
+            <p>About 3 hours from greater Boston area</p>
+            
+            <h3>Regional Airports</h3>
+            <ul>
+                <li><strong>45 minutes:</strong> Rutland Southern Vermont Regional Airport</li>
+                <li><strong>2 hours:</strong> Burlington International Airport (NH)</li>
+                <li><strong>2.5 hours:</strong> Bradley International Airport (CT)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="directions-section">
+        <h2>🗺️ Directions (You May Think You're Lost... But You Aren't!)</h2>
+        
+        <div class="direction-box">
+            <h3>From South</h3>
+            <ol>
+                <li>From Rte 100 after Plymouth, turn right on Rte 100A (Salt Ash Inn is on the corner)</li>
+                <li>Go 0.9 mile and turn right on Lynds Hill Rd</li>
+                <li>Go 2.6 miles on the twisting, country road</li>
+                <li>Bethany Birches Camp is on your right and is clearly marked</li>
+                <li>The cabin is on your right as you enter the parking lot</li>
+            </ol>
+        </div>
+
+        <div class="direction-box">
+            <h3>From East</h3>
+            <ol>
+                <li>From Rte 4 in Bridgewater, turn left on Rte 100A (general store on the corner)</li>
+                <li>Follow for 6 or 7 miles</li>
+                <li>Make a left on Lynds Hill Rd (sign in fair weather months)</li>
+                <li>Go 2.6 miles on the twisting, country road</li>
+                <li>Bethany Birches Camp is on your right and is clearly marked</li>
+                <li>The cabin is on your right as you enter the parking lot</li>
+            </ol>
+        </div>
+
+        <div class="direction-box">
+            <h3>From West</h3>
+            <ol>
+                <li>From Rte 4 in Killington, you'll see two general stores after a long straight-away</li>
+                <li>Turn right on Rte 100A</li>
+                <li>Follow for 6 or 7 miles</li>
+                <li>Make a left onto 100A</li>
+                <li>Go 0.9 miles and turn right onto Lynds Hill Rd</li>
+                <li>Go 2.6 miles on the twisting, country road</li>
+                <li>Bethany Birches Camp is on your right and is clearly marked</li>
+                <li>The cabin is on your right as you enter the parking lot</li>
+            </ol>
+        </div>
+
+        <div class="direction-box">
+            <h3>From North</h3>
+            <ol>
+                <li>From I-89 South, take exit 1 for Woodstock/RT 4</li>
+                <li>Turn West off the exit onto RT 4</li>
+                <li>Take it West through Woodstock into Bridgewater</li>
+                <li>In Bridgewater Corners, make a left at the general store onto 100A</li>
+                <li>Follow for 6 or 7 miles</li>
+                <li>Make a left on Lynds Hill Rd (sign in fair weather months)</li>
+                <li>Go 2.6 miles on the twisting, country road</li>
+                <li>Bethany Birches Camp is on your right and is clearly marked</li>
+                <li>The cabin is on your right as you enter the parking lot</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="rsvp-section">
+        <h2>📝 RSVP</h2>
+        <div class="rsvp-content">
+            <p>Let us know if you'll be joining us at Camp HellGreene!</p>
+            <button @onclick="ToggleWindowVisibility" class="rsvp-button">Click Here to RSVP</button>
+        </div>
+    </section>
+
+    <TelerikWindow Modal="true" @bind-Visible="@IsVisible">
+        <WindowTitle>
+            <strong>RVSP</strong>
+        </WindowTitle>
+        <WindowActions>
+            <WindowAction Name="Close" />
+        </WindowActions>
+        <WindowContent>
+            <TelerikForm Model="@rsvp" OnValidSubmit="@OnValidSubmitHandler">
+                <FormValidation>
+                    <DataAnnotationsValidator />
+                </FormValidation>
+                <FormItems>
+                    <FormItem Field="@nameof(RSVP.Name)" LabelText="Name" />
+                    <FormItem Field="@nameof(RSVP.Email)" LabelText="Email" />
+                    <FormItem Field="@nameof(RSVP.Message)" LabelText="Message (optional)" />
+                    <FormItem Field="@nameof(RSVP.Answer)">
+                        <Template>
+                            <label for="firsttime" class="k-label k-form-label">Your Answer</label>
+                            <div class="k-form-field-wrap">
+                                <TelerikRadioGroup Data="@RadioGroupData" @bind-Value="@rsvp.Answer" />
+                            </div>
+                        </Template>
+                    </FormItem>
+
+                </FormItems>
+            </TelerikForm>
+
+        </WindowContent>
+
+    </TelerikWindow>
+
+    <footer class="camp-footer">
+        <p>🌲 We can't wait to see you at Camp HellGreene! 🌲</p>
+        <p><em>No actual murders planned... probably.</em></p>
+    </footer>
+</div>
+
+<style>
+    @@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600;700&display=swap');
+
+    .camp-hellgreene {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #1a3d2e;
+        color: #ffffff;
+        font-family: 'Montserrat', sans-serif;
+        height: auto;
+        overflow-y: auto;
+        min-height: 100%;
+    }
+
+    .camp-header {
+        text-align: center;
+        padding: 60px 20px 40px;
+        background: linear-gradient(135deg, #2d5a45 0%, #1a3d2e 100%);
+        border: 4px solid #ff9933;
+        margin-bottom: 40px;
+        box-shadow: 0 0 30px rgba(255, 153, 51, 0.3);
+        border-radius: 15px;
+    }
+
+    .camp-sign {
+        text-align: center;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .camp-sign img {
+        max-width: 70%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .adventure-section {
+        background-color: transparent;
+        border: none;
+        padding: 20px 30px;
+    }
+
+    .adventure-section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .adventure-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .adventure-box {
+        background: linear-gradient(135deg, #2d5a45 0%, #234a38 100%);
+        padding: 40px 30px;
+        border: 4px solid #ff9933;
+        border-radius: 15px;
+        text-align: center;
+        transition: all 0.3s;
+        box-shadow: 0 0 20px rgba(255, 153, 51, 0.3);
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+    }
+
+    .adventure-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(255, 153, 51, 0.5);
+        border-color: #ffcc66;
+        text-decoration: none;
+    }
+
+    .adventure-box h3 {
+        font-family: 'Pacifico', cursive;
+        color: #ff9933;
+        font-size: 2em;
+        margin: 0 0 20px 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .adventure-box p {
+        color: #ffffff;
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .camp-title {
+        font-family: 'Pacifico', cursive;
+        font-size: 4em;
+        color: #ff9933;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+        margin: 0;
+        letter-spacing: 3px;
+    }
+
+    .camp-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5em;
+        color: #ffffff;
+        margin: 15px 0;
+        font-weight: 600;
+    }
+
+    .camp-date {
+        font-size: 1.3em;
+        color: #ffcc99;
+        margin: 15px 0;
+        font-weight: 700;
+    }
+
+    .warning-section {
+        margin: 30px 0;
+    }
+
+    .warning-box {
+        background-color: #2d5a45;
+        border: 3px solid #ff9933;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(255, 153, 51, 0.4);
+        border-radius: 10px;
+    }
+
+    .warning-box h2 {
+        color: #ff9933;
+        font-size: 2em;
+        margin-top: 0;
+        font-weight: 700;
+    }
+
+    .warning-box p {
+        color: #fff;
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
+    section {
+        margin: 40px 0;
+        padding: 30px;
+        background-color: #2d5a45;
+        border: 2px solid #3d6d54;
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-family: 'Pacifico', cursive;
+        color: #ff9933;
+        font-size: 2.5em;
+        border-bottom: 3px solid #ff9933;
+        padding-bottom: 15px;
+        margin-top: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    h3 {
+        color: #ffcc66;
+        font-size: 1.6em;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+
+    .info-box {
+        background-color: #234a38;
+        padding: 25px;
+        border-left: 6px solid #ff9933;
+        margin: 20px 0;
+        border-radius: 5px;
+    }
+
+    .info-box ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .info-box li {
+        padding: 10px 0;
+        border-bottom: 1px solid #3d6d54;
+        line-height: 1.5;
+    }
+
+    .info-box li:last-child {
+        border-bottom: none;
+    }
+
+    .cost-box {
+        background-color: #ff9933;
+        color: #1a3d2e;
+        padding: 20px;
+        margin-top: 25px;
+        text-align: center;
+        font-size: 1.4em;
+        border: 3px solid #ffcc66;
+        border-radius: 8px;
+        font-weight: 700;
+    }
+
+    .lodging-warning {
+        background-color: #ff9933;
+        color: #1a3d2e;
+        padding: 20px;
+        margin-top: 20px;
+        border: 3px solid #ffcc66;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    .accommodations-intro {
+        text-align: center;
+        font-size: 1.1em;
+        color: #b8e0c8;
+        margin-bottom: 25px;
+    }
+
+    .hotel-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .hotel-card {
+        background-color: #234a38;
+        padding: 25px;
+        border: 3px solid #3d6d54;
+        border-radius: 10px;
+        transition: all 0.3s;
+        text-align: center;
+    }
+
+    .hotel-card:hover {
+        background-color: #2d5a45;
+        border-color: #ff9933;
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px rgba(255, 153, 51, 0.4);
+    }
+
+    .hotel-card h3 {
+        color: #ff9933;
+        font-size: 1.4em;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+    }
+
+    .hotel-collection {
+        color: #b8e0c8;
+        font-size: 0.9em;
+        font-style: italic;
+        margin: 5px 0;
+    }
+
+    .hotel-distance {
+        color: #ffcc66;
+        font-size: 1.1em;
+        font-weight: 700;
+        margin: 10px 0;
+    }
+
+    .hotel-link {
+        display: inline-block;
+        color: #ff9933;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 10px;
+        padding: 8px 15px;
+        border: 2px solid #ff9933;
+        border-radius: 5px;
+        transition: all 0.3s;
+    }
+
+    .hotel-link:hover {
+        background-color: #ff9933;
+        color: #1a3d2e;
+        text-decoration: none;
+    }
+
+    .camp-dates {
+        font-size: 1.3em;
+        color: #ffcc99;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .camp-subtitle-text {
+        text-align: center;
+        color: #b8e0c8;
+        font-style: italic;
+        font-size: 1.1em;
+    }
+
+    .activities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .activity-card {
+        background-color: #234a38;
+        padding: 25px;
+        text-align: center;
+        border: 3px solid #3d6d54;
+        border-radius: 10px;
+        transition: all 0.3s;
+        font-size: 1.1em;
+        font-weight: 600;
+    }
+
+    .activity-card:hover {
+        background-color: #2d5a45;
+        border-color: #ff9933;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 153, 51, 0.5);
+    }
+
+    .travel-info {
+        background-color: #234a38;
+        padding: 25px;
+        border-radius: 8px;
+    }
+
+    .travel-info ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .travel-info li {
+        padding: 12px 0;
+        border-bottom: 1px solid #3d6d54;
+        line-height: 1.6;
+    }
+
+    .direction-box {
+        background-color: #234a38;
+        padding: 25px;
+        margin: 20px 0;
+        border-left: 6px solid #ff9933;
+        border-radius: 5px;
+    }
+
+    .direction-box ol {
+        padding-left: 25px;
+    }
+
+    .direction-box li {
+        padding: 10px 0;
+        line-height: 1.7;
+    }
+
+    .camp-footer {
+        text-align: center;
+        padding: 50px 20px;
+        background: linear-gradient(135deg, #2d5a45 0%, #1a3d2e 100%);
+        border: 4px solid #ff9933;
+        margin-top: 50px;
+        font-size: 1.3em;
+        border-radius: 15px;
+    }
+
+    .rsvp-section {
+        text-align: center;
+        background: linear-gradient(135deg, #2d5a45 0%, #234a38 100%);
+        border: 4px solid #ff9933;
+        box-shadow: 0 0 30px rgba(255, 153, 51, 0.4);
+    }
+
+    .rsvp-content {
+        padding: 20px;
+    }
+
+    .rsvp-content p {
+        font-size: 1.3em;
+        color: #ffffff;
+        margin-bottom: 25px;
+    }
+
+    .rsvp-button {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #ff9933;
+        color: #1a3d2e;
+        border: 3px solid #ffcc66;
+        padding: 20px 50px;
+        font-size: 1.5em;
+        font-weight: 700;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .rsvp-button:hover {
+        background-color: #ffcc66;
+        border-color: #ff9933;
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(255, 153, 51, 0.5);
+    }
+
+    .rsvp-button:active {
+        transform: scale(0.98);
+    }
+
+    .k-window {
+        background-color: #2d5a45 !important;
+        border: 4px solid #ff9933 !important;
+        box-shadow: 0 0 40px rgba(255, 153, 51, 0.6) !important;
+        border-radius: 15px !important;
+        overflow: hidden !important;
+    }
+
+    .k-window-title {
+        background-color: #234a38 !important;
+        color: #ff9933 !important;
+        font-family: 'Pacifico', cursive !important;
+        font-size: 2em !important;
+        border-bottom: 3px solid #ff9933 !important;
+    }
+
+    .k-window-titlebar {
+        background-color: #234a38 !important;
+        border-bottom: 3px solid #ff9933 !important;
+        border-radius: 15px 15px 0 0 !important;
+    }
+
+    .k-window-content {
+        background-color: #2d5a45 !important;
+        color: #ffffff !important;
+        border-radius: 0 0 15px 15px !important;
+    }
+
+    .k-form-label {
+        color: #ffcc66 !important;
+        font-weight: 600 !important;
+    }
+
+    .k-form .k-textbox,
+    .k-form .k-input {
+        background-color: #234a38 !important;
+        color: #ffffff !important;
+        border: 2px solid #3d6d54 !important;
+    }
+
+    .k-form .k-textbox:focus,
+    .k-form .k-input:focus {
+        border-color: #ff9933 !important;
+        box-shadow: 0 0 10px rgba(255, 153, 51, 0.3) !important;
+    }
+
+    .k-radio {
+        border-color: #ff9933 !important;
+    }
+
+    .k-radio:checked {
+        background-color: #ff9933 !important;
+        border-color: #ff9933 !important;
+    }
+
+    .k-form-buttons {
+        background-color: transparent !important;
+    }
+
+    .k-form .k-button-solid-primary {
+        background-color: #ff9933 !important;
+        color: #1a3d2e !important;
+        border: 3px solid #ffcc66 !important;
+        font-weight: 700 !important;
+        font-size: 1.2em !important;
+        padding: 15px 40px !important;
+    }
+
+    .k-form .k-button-solid-primary:hover {
+        background-color: #ffcc66 !important;
+        border-color: #ff9933 !important;
+    }
+
+    .k-animation-container {
+        z-index: 10000 !important;
+    }
+
+    .camp-footer p {
+        margin: 15px 0;
+    }
+
+    .camp-footer em {
+        color: #ffcc66;
+        font-size: 0.9em;
+        font-style: italic;
+    }
+
+    @@media (max-width: 768px) {
+        .camp-title {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        .activities-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .adventure-grid {
+            grid-template-columns: 1fr;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .camp-sign img {
+            max-width: 90%;
+        }
+    }
+</style>
+
+@code {
+
+    private bool IsVisible { get; set; } = false;
+    private void ToggleWindowVisibility()
+    {
+        IsVisible = !IsVisible;
+    }
+
+    private async Task OnValidSubmitHandler()
+    {
+        // Send data to your API
+        var response = await Http.PostAsJsonAsync("https://formspree.io/f/mdalvvpa", rsvp);
+
+        if (response.IsSuccessStatusCode)
+        {
+            // Handle successful submission (e.g., show a success message, redirect)
+            Console.WriteLine("Form submitted successfully!");
+            rsvp = new RSVP(); // Clear the form
+            IsVisible = false; // Close the window
+        }
+        else
+        {
+            // Handle error
+            Console.WriteLine($"Error submitting form: {response.StatusCode}");
+            rsvp = new RSVP(); // Clear the form
+            IsVisible = false; // Close the window
+        }
+    }
+
+
+    private IEnumerable<string> RadioGroupData { get; set; } = new List<string> {
+        "Not Attending",
+        "Attending (Reception Only)",
+        "Attending (Full Weekend Experience)"};
+
+
+    public RSVP rsvp = new RSVP();
+
+    public class RSVP
+    {
+        [Required(ErrorMessage = "Name is required")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org)$",
+                       ErrorMessage = "Email must be a valid .com, .net, or .org address.")]
+        public string Email { get; set; }
+
+        public string Message { get; set; }
+
+        [Required(ErrorMessage = "RSVP Answer is required")]
+        public string Answer { get; set; }
+    }
+}

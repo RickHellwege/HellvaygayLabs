@@ -2,13 +2,31 @@
 
 <style>
 
-    .drawerButton {
-        width: 32px;
-        height: 32px;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
+body, html {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.drawer-container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.k-drawer-content {
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.drawerButton {
+    width: 32px;
+    height: 32px;
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    z-index: 1000;
+}
 
     .drawerButton img {
         display: flex;
@@ -52,6 +70,7 @@
         new DrawerItem { Separator = true },
         new DrawerItem { Text = "Countdown", Url = "countdown", Icon = SvgIcon.Plus.Name },
         new DrawerItem { Text = "Timewarp", Url = "timewarp", Icon = SvgIcon.Plus.Name },
+        new DrawerItem { Text = "Experiment 17", Url = "experiment17", Icon = SvgIcon.Plus.Name },
         };
 
         public class DrawerItem
