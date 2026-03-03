@@ -1,0 +1,816 @@
+﻿/* ============================================
+   CAMP HELLGREENE - PROFESSIONAL MODERN DESIGN
+   Spooky Sleepaway Camp Wedding Reception
+   ============================================ */
+
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@font-face {
+    font-family: 'Weekend Camp';
+    src: url('../font/Weekend Camp.otf') format('opentype');
+}
+
+/* --- Design System Tokens --- */
+:root {
+    --primary: #d97706;
+    --primary-light: #fbbf24;
+    --primary-dark: #b45309;
+    --bg-primary: #0a1f14;
+    --bg-secondary: #143325;
+    --bg-elevated: #1e4735;
+    --bg-card: #285a45;
+    --text-primary: #ffffff;
+    --text-secondary: #d1fae5;
+    --text-muted: #86efac;
+    --success: #10b981;
+    --error: #ef4444;
+    --warning: #dc2626;
+    --font-heading: 'Weekend Camp', serif;
+    --font-subheading: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 40px rgba(217, 119, 6, 0.3);
+    --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   BASE LAYOUT
+   ============================================ */
+
+.camp-hellgreene {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h2 {
+    font-family: var(--font-heading);
+    color: var(--primary);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 2.5rem 0;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+h3 {
+    font-family: var(--font-subheading);
+    color: var(--primary-light);
+    font-size: clamp(1.5rem, 3vw, 2.0rem);
+    font-weight: 600;
+    margin: 1.5rem 0 1rem 0;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.camp-header {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    background: linear-gradient(135deg, rgba(45, 90, 69, 0.9), rgba(20, 51, 37, 0.9));
+    border: 2px solid var(--primary);
+    border-radius: 1.5rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.camp-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(217, 119, 6, 0.1), transparent 70%);
+}
+
+.camp-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--primary);
+    text-shadow: 0 4px 20px rgba(217, 119, 6, 0.5);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+}
+
+.camp-subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: var(--text-secondary);
+    margin: 1.5rem 0 2.5rem 0;
+    font-weight: 500;
+}
+
+.camp-date {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-secondary);
+    margin: 1.5rem 0;
+    font-weight: 600;
+}
+
+.camp-date strong {
+    display: block;
+    color: var(--primary-light);
+    font-size: 1.1em;
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   CAMP SIGN
+   ============================================ */
+
+.camp-sign {
+    text-align: center;
+    margin: 3rem auto;
+    padding: 1.5rem;
+}
+
+.camp-sign img {
+    max-width: min(700px, 85%);
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition);
+}
+
+.camp-sign img:hover {
+    transform: scale(1.02);
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+
+section {
+    margin: 3rem 0;
+    padding: 2.5rem;
+    background: rgba(30, 71, 53, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(77, 125, 100, 0.3);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: all var(--transition);
+}
+
+section:hover {
+    border-color: rgba(217, 119, 6, 0.5);
+}
+
+/* --- Adventure Section --- */
+.adventure-section {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.adventure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.adventure-box {
+    background: linear-gradient(135deg, rgba(40, 90, 69, 0.95), rgba(30, 71, 53, 0.95));
+    padding: 3rem 2rem;
+    border: 2px solid var(--primary);
+    border-radius: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 280px;
+    cursor: pointer;
+    transition: all var(--transition);
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.adventure-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.adventure-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(217, 119, 6, 0.4);
+    border-color: var(--primary-light);
+}
+
+.adventure-box:hover::before {
+    opacity: 1;
+}
+
+.adventure-box h3 {
+    font-family: var(--font-heading);
+    color: var(--primary);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin: 0 0 1.5rem 0;
+    z-index: 1;
+    position: relative;
+}
+
+.adventure-box p {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0;
+    z-index: 1;
+    position: relative;
+}
+
+/* --- Warning Section --- */
+.warning-section {
+    margin: 2rem 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.warning-box {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(180, 83, 9, 0.15));
+    border: 2px solid var(--warning);
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+}
+
+.warning-box h2::after {
+    background: linear-gradient(90deg, transparent, var(--warning), transparent);
+}
+
+.warning-box p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin: 1rem 0;
+}
+
+.warning-box em {
+    color: var(--text-muted);
+}
+
+/* ============================================
+   INFO BOXES
+   ============================================ */
+
+.info-box {
+    background: rgba(30, 71, 53, 0.6);
+    padding: 2rem;
+    border-left: 4px solid var(--primary);
+    border-radius: 0.75rem;
+    margin: 2rem 0;
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.info-box li {
+    padding: 0.75rem 0 0.75rem 2rem;
+    border-bottom: 1px solid rgba(77, 125, 100, 0.3);
+    position: relative;
+}
+
+.info-box li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.info-box li:last-child {
+    border-bottom: none;
+}
+
+.cost-box {
+    background: linear-gradient(135deg, var(--primary), #f59e0b);
+    color: var(--bg-primary);
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+}
+
+.lodging-warning {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+    color: var(--text-primary);
+    padding: 2rem;
+    margin-top: 2rem;
+    border: 2px solid var(--error);
+    border-radius: 0.75rem;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.3);
+}
+
+.lodging-warning strong {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fef08a;
+}
+
+/* ============================================
+   HOTELS
+   ============================================ */
+
+.accommodations-intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.hotel-card {
+    background: rgba(30, 71, 53, 0.6);
+    padding: 2rem;
+    border: 1px solid rgba(77, 125, 100, 0.3);
+    border-radius: 0.75rem;
+    text-align: center;
+    transition: all var(--transition);
+}
+
+.hotel-card:hover {
+    background: rgba(40, 90, 69, 0.8);
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.hotel-card h3 {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.hotel-collection {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+.hotel-distance {
+    color: var(--primary-light);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0.75rem 0;
+}
+
+.hotel-link {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid var(--primary);
+    border-radius: 0.5rem;
+    transition: all var(--transition);
+    font-size: 0.9375rem;
+}
+
+.hotel-link:hover {
+    background: var(--primary);
+    color: var(--bg-primary);
+    transform: scale(1.05);
+}
+
+/* ============================================
+   CAMP DETAILS
+   ============================================ */
+
+.camp-dates {
+    font-size: 1.25rem;
+    color: var(--primary-light);
+    text-align: center;
+    font-weight: 600;
+    margin: 1.5rem 0;
+}
+
+.camp-subtitle-text {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 1rem 0 2rem 0;
+}
+
+/* ============================================
+   ACTIVITIES
+   ============================================ */
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.activity-card {
+    background: rgba(30, 71, 53, 0.6);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(77, 125, 100, 0.3);
+    border-radius: 0.75rem;
+    font-weight: 500;
+    transition: all var(--transition);
+    min-height: 120px;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-card:hover {
+    background: rgba(40, 90, 69, 0.8);
+    border-color: var(--primary);
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+}
+
+.activity-card small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   TRAVEL & DIRECTIONS
+   ============================================ */
+
+.travel-info {
+    background: rgba(30, 71, 53, 0.4);
+    padding: 2rem;
+    border-radius: 0.75rem;
+}
+
+.travel-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.travel-info li {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(77, 125, 100, 0.3);
+}
+
+.travel-info li:last-child {
+    border-bottom: none;
+}
+
+.direction-box {
+    background: rgba(30, 71, 53, 0.4);
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--primary);
+    border-radius: 0.75rem;
+}
+
+.direction-box ol {
+    padding-left: 1.75rem;
+    margin: 1rem 0;
+}
+
+.direction-box li {
+    padding: 0.5rem 0;
+    line-height: 1.7;
+}
+
+/* ============================================
+   RSVP SECTION
+   ============================================ */
+
+.rsvp-section {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(180, 83, 9, 0.2));
+    border: 2px solid var(--primary);
+    box-shadow: var(--shadow-glow);
+    padding: 3rem 2rem;
+}
+
+.rsvp-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.rsvp-button {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--primary), #f59e0b);
+    color: var(--bg-primary);
+    border: none;
+    padding: 1.25rem 3rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: all var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.rsvp-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(217, 119, 6, 0.4);
+}
+
+.rsvp-button:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   TELERIK COMPONENTS
+   ============================================ */
+
+.k-window {
+    background: var(--bg-card) !important;
+    border: 2px solid var(--primary) !important;
+    box-shadow: var(--shadow-glow) !important;
+    border-radius: 1rem !important;
+}
+
+.k-window-title {
+    background: var(--bg-elevated) !important;
+    color: var(--primary) !important;
+    font-family: var(--font-heading) !important;
+    font-size: 1.75rem !important;
+    border-bottom: 2px solid var(--primary) !important;
+    padding: 1.5rem !important;
+}
+
+.k-window-titlebar {
+    background: var(--bg-elevated) !important;
+    border-bottom: 2px solid var(--primary) !important;
+}
+
+.k-window-content {
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    padding: 2rem !important;
+}
+
+.k-form-label {
+    color: var(--primary-light) !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+}
+
+.k-form .k-textbox,
+.k-form .k-input,
+.k-form .k-textarea {
+    background: var(--bg-elevated) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(77, 125, 100, 0.5) !important;
+    border-radius: 0.5rem !important;
+    padding: 0.75rem !important;
+}
+
+.k-form .k-textbox:focus,
+.k-form .k-input:focus,
+.k-form .k-textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2) !important;
+}
+
+.k-radio {
+    border-color: var(--primary) !important;
+}
+
+.k-radio:checked {
+    background: var(--primary) !important;
+}
+
+.k-form-buttons {
+    margin-top: 2rem !important;
+}
+
+.k-form .k-button-solid-primary {
+    background: linear-gradient(135deg, var(--primary), #f59e0b) !important;
+    color: var(--bg-primary) !important;
+    border: none !important;
+    font-weight: 700 !important;
+    font-size: 1.125rem !important;
+    padding: 1rem 2rem !important;
+    border-radius: 0.75rem !important;
+    transition: all var(--transition) !important;
+}
+
+.k-form .k-button-solid-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow) !important;
+}
+
+.k-form .k-form-error,
+.k-form .k-text-error {
+    color: var(--error) !important;
+    font-size: 0.875rem !important;
+    margin-top: 0.5rem !important;
+}
+
+/* ============================================
+   DIALOGS
+   ============================================ */
+
+.k-animation-container {
+    z-index: 10000 !important;
+}
+
+.k-dialog {
+    background: var(--bg-card) !important;
+    border: 2px solid var(--primary) !important;
+    box-shadow: var(--shadow-glow) !important;
+    border-radius: 1rem !important;
+}
+
+.k-dialog-title {
+    background: var(--bg-elevated) !important;
+    color: var(--primary) !important;
+    font-family: var(--font-heading) !important;
+    font-size: 1.75rem !important;
+    border-bottom: 2px solid var(--primary) !important;
+    padding: 1.5rem !important;
+}
+
+.k-dialog-content {
+    background: var(--bg-card) !important;
+    padding: 2rem !important;
+}
+
+.k-dialog-buttongroup {
+    background: var(--bg-card) !important;
+    border-top: 1px solid rgba(77, 125, 100, 0.3) !important;
+    padding: 1.5rem !important;
+}
+
+.confirmation-content,
+.error-content {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.confirmation-content p {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+
+.confirmation-content p:first-child {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--success);
+}
+
+.error-content p {
+    font-size: 1.25rem;
+    color: var(--error);
+    font-weight: 700;
+}
+
+.confirmation-button,
+.error-button {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--primary), #f59e0b) !important;
+    color: var(--bg-primary) !important;
+    border: none !important;
+    padding: 1rem 3rem !important;
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    border-radius: 0.75rem !important;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.confirmation-button:hover,
+.error-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.camp-footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+    border: 2px solid var(--primary);
+    margin-top: 4rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.camp-footer p {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+
+.camp-footer em {
+    color: var(--primary-light);
+    font-style: italic;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .camp-hellgreene {
+        padding: 1.5rem;
+    }
+    
+    .camp-header {
+        padding: 3rem 1.5rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    .adventure-grid,
+    .activities-grid,
+    .hotel-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .camp-sign img {
+        max-width: 100%;
+    }
+    
+    .rsvp-button {
+        font-size: 1.125rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .adventure-grid,
+    .hotel-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .rsvp-button,
+    .k-window,
+    .k-dialog {
+        display: none;
+    }
+}
