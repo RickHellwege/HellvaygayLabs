@@ -41,7 +41,7 @@
 .camp-hellgreene {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
     background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     color: var(--text-primary);
     font-family: var(--font-body);
@@ -60,9 +60,9 @@ h2 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 700;
     text-align: center;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 1.5rem 0;
     position: relative;
-    padding-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
 }
 
 h2::after {
@@ -79,9 +79,9 @@ h2::after {
 h3 {
     font-family: var(--font-subheading);
     color: var(--primary-light);
-    font-size: clamp(1.5rem, 3vw, 2.0rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     font-weight: 600;
-    margin: 1.5rem 0 1rem 0;
+    margin: 1rem 0 0.75rem 0;
 }
 
 /* ============================================
@@ -90,11 +90,11 @@ h3 {
 
 .camp-header {
     text-align: center;
-    padding: 5rem 2rem 3rem;
+    padding: 2.5rem 1.5rem 1.5rem;
     background: linear-gradient(135deg, rgba(45, 90, 69, 0.9), rgba(20, 51, 37, 0.9));
     border: 2px solid var(--primary);
     border-radius: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     box-shadow: var(--shadow-glow);
     position: relative;
     overflow: hidden;
@@ -112,7 +112,7 @@ h3 {
     font-size: clamp(3rem, 8vw, 6rem);
     color: var(--primary);
     text-shadow: 0 4px 20px rgba(217, 119, 6, 0.5);
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 0.75rem 0;
     line-height: 1.1;
     position: relative;
     z-index: 1;
@@ -121,14 +121,14 @@ h3 {
 .camp-subtitle {
     font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     color: var(--text-secondary);
-    margin: 1.5rem 0 2.5rem 0;
+    margin: 0.75rem 0 1.25rem 0;
     font-weight: 500;
 }
 
 .camp-date {
     font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--text-secondary);
-    margin: 1.5rem 0;
+    margin: 0.75rem 0;
     font-weight: 600;
 }
 
@@ -139,14 +139,22 @@ h3 {
     margin-bottom: 0.5rem;
 }
 
+.camp-note {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
 /* ============================================
    CAMP SIGN
    ============================================ */
 
 .camp-sign {
     text-align: center;
-    margin: 3rem auto;
-    padding: 1.5rem;
+    margin: 1.5rem auto;
+    padding: 0.75rem;
 }
 
 .camp-sign img {
@@ -166,8 +174,8 @@ h3 {
    ============================================ */
 
 section {
-    margin: 3rem 0;
-    padding: 2.5rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
     background: rgba(30, 71, 53, 0.5);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(77, 125, 100, 0.3);
@@ -190,13 +198,13 @@ section:hover {
 .adventure-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
 }
 
 .adventure-box {
     background: linear-gradient(135deg, rgba(40, 90, 69, 0.95), rgba(30, 71, 53, 0.95));
-    padding: 3rem 2rem;
+    padding: 2rem 1.5rem;
     border: 2px solid var(--primary);
     border-radius: 1rem;
     text-align: center;
@@ -204,7 +212,7 @@ section:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 280px;
+    min-height: 220px;
     cursor: pointer;
     transition: all var(--transition);
     box-shadow: var(--shadow);
@@ -233,8 +241,8 @@ section:hover {
 .adventure-box h3 {
     font-family: var(--font-heading);
     color: var(--primary);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    margin: 0 0 1.5rem 0;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    margin: 0 0 1rem 0;
     z-index: 1;
     position: relative;
 }
@@ -250,7 +258,7 @@ section:hover {
 
 /* --- Warning Section --- */
 .warning-section {
-    margin: 2rem 0;
+    margin: 1.25rem 0;
     padding: 0;
     background: transparent;
     border: none;
@@ -260,7 +268,7 @@ section:hover {
 .warning-box {
     background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(180, 83, 9, 0.15));
     border: 2px solid var(--warning);
-    padding: 2.5rem;
+    padding: 1.5rem;
     text-align: center;
     border-radius: 1rem;
     box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
@@ -286,20 +294,20 @@ section:hover {
 
 .info-box {
     background: rgba(30, 71, 53, 0.6);
-    padding: 2rem;
+    padding: 1.25rem;
     border-left: 4px solid var(--primary);
     border-radius: 0.75rem;
-    margin: 2rem 0;
+    margin: 1.25rem 0;
 }
 
 .info-box ul {
     list-style: none;
     padding: 0;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
 }
 
 .info-box li {
-    padding: 0.75rem 0 0.75rem 2rem;
+    padding: 0.5rem 0 0.5rem 2rem;
     border-bottom: 1px solid rgba(77, 125, 100, 0.3);
     position: relative;
 }
@@ -319,8 +327,8 @@ section:hover {
 .cost-box {
     background: linear-gradient(135deg, var(--primary), #f59e0b);
     color: var(--bg-primary);
-    padding: 2rem;
-    margin-top: 2rem;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 700;
@@ -331,8 +339,8 @@ section:hover {
 .lodging-warning {
     background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
     color: var(--text-primary);
-    padding: 2rem;
-    margin-top: 2rem;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
     border: 2px solid var(--error);
     border-radius: 0.75rem;
     text-align: center;
@@ -355,24 +363,28 @@ section:hover {
     text-align: center;
     font-size: 1.125rem;
     color: var(--text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
     font-weight: 500;
 }
 
 .hotel-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1.25rem;
 }
 
 .hotel-card {
     background: rgba(30, 71, 53, 0.6);
-    padding: 2rem;
+    padding: 1.25rem;
     border: 1px solid rgba(77, 125, 100, 0.3);
     border-radius: 0.75rem;
     text-align: center;
     transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 100%;
 }
 
 .hotel-card:hover {
@@ -384,7 +396,7 @@ section:hover {
 
 .hotel-card h3 {
     color: var(--primary);
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin: 0 0 0.75rem 0;
 }
 
@@ -402,16 +414,19 @@ section:hover {
 }
 
 .hotel-link {
-    display: inline-block;
+    display: block;
     color: var(--primary);
     text-decoration: none;
     font-weight: 600;
-    margin-top: 1rem;
-    padding: 0.75rem 1.25rem;
+    margin-top: auto;
+    padding: 0.75rem 0.75rem;
     border: 2px solid var(--primary);
     border-radius: 0.5rem;
     transition: all var(--transition);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .hotel-link:hover {
@@ -429,14 +444,14 @@ section:hover {
     color: var(--primary-light);
     text-align: center;
     font-weight: 600;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
 }
 
 .camp-subtitle-text {
     text-align: center;
     color: var(--text-muted);
     font-style: italic;
-    margin: 1rem 0 2rem 0;
+    margin: 0.75rem 0 1.25rem 0;
 }
 
 /* ============================================
@@ -446,19 +461,19 @@ section:hover {
 .activities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1.25rem;
 }
 
 .activity-card {
     background: rgba(30, 71, 53, 0.6);
-    padding: 2rem 1.5rem;
+    padding: 1.25rem 1rem;
     text-align: center;
     border: 1px solid rgba(77, 125, 100, 0.3);
     border-radius: 0.75rem;
     font-weight: 500;
     transition: all var(--transition);
-    min-height: 120px;
+    min-height: 100px;
     align-items: center;
     justify-content: center;
 }
@@ -483,7 +498,7 @@ section:hover {
 
 .travel-info {
     background: rgba(30, 71, 53, 0.4);
-    padding: 2rem;
+    padding: 1.25rem;
     border-radius: 0.75rem;
 }
 
@@ -493,7 +508,7 @@ section:hover {
 }
 
 .travel-info li {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     border-bottom: 1px solid rgba(77, 125, 100, 0.3);
 }
 
@@ -503,15 +518,15 @@ section:hover {
 
 .direction-box {
     background: rgba(30, 71, 53, 0.4);
-    padding: 2rem;
-    margin: 1.5rem 0;
+    padding: 1.25rem;
+    margin: 1rem 0;
     border-left: 4px solid var(--primary);
     border-radius: 0.75rem;
 }
 
 .direction-box ol {
     padding-left: 1.75rem;
-    margin: 1rem 0;
+    margin: 0.75rem 0;
 }
 
 .direction-box li {
@@ -528,12 +543,12 @@ section:hover {
     background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(180, 83, 9, 0.2));
     border: 2px solid var(--primary);
     box-shadow: var(--shadow-glow);
-    padding: 3rem 2rem;
+    padding: 2rem 1.5rem;
 }
 
 .rsvp-content p {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
     font-weight: 500;
 }
 
@@ -577,9 +592,10 @@ section:hover {
     background: var(--bg-elevated) !important;
     color: var(--primary) !important;
     font-family: var(--font-heading) !important;
-    font-size: 1.75rem !important;
+    font-size: 2.25rem !important;
     border-bottom: 2px solid var(--primary) !important;
     padding: 1.5rem !important;
+    text-align: center !important;
 }
 
 .k-window-titlebar {
@@ -735,10 +751,10 @@ section:hover {
 
 .camp-footer {
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 2rem 1.5rem;
     background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
     border: 2px solid var(--primary);
-    margin-top: 4rem;
+    margin-top: 2rem;
     border-radius: 1rem;
     box-shadow: var(--shadow);
 }
@@ -759,28 +775,28 @@ section:hover {
 
 @media (max-width: 768px) {
     .camp-hellgreene {
-        padding: 1.5rem;
+        padding: 0.75rem;
     }
-    
+
     .camp-header {
-        padding: 3rem 1.5rem;
+        padding: 2rem 1rem;
     }
-    
+
     section {
-        padding: 1.5rem;
+        padding: 1rem;
     }
-    
+
     .adventure-grid,
     .activities-grid,
     .hotel-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
     }
-    
+
     .camp-sign img {
         max-width: 100%;
     }
-    
+
     .rsvp-button {
         font-size: 1.125rem;
         padding: 1rem 2rem;

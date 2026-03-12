@@ -18,6 +18,9 @@
             <strong>-Full Camp Experience-</strong>
             Friday, October 9 at 3:00 PM - Monday, October 12 at 11:00 AM
         </p>
+        <p class="camp-note">
+            All guests must be 21+
+        </p>
 
     </header>
 
@@ -168,57 +171,77 @@
 
     <section class="directions-section">
         <h2>🗺️ Directions (Don't get lost in the woods!)</h2>
-        
+
         <div class="direction-box">
-            <h3>From South</h3>
-            <ol>
-                <li>From Rte 100 after Plymouth, turn right on Rte 100A (Salt Ash Inn is on the corner)</li>
-                <li>Go 0.9 mile and turn right on Lynds Hill Rd</li>
-                <li>Go 2.6 miles on the twisting, country road</li>
-                <li>Bethany Birches Camp is on your right and is clearly marked</li>
-                <li>The cabin is on your right as you enter the parking lot</li>
-            </ol>
+            <h3 @onclick="@(() => ToggleDirection("South"))" style="cursor: pointer;">
+                From South @(ExpandedDirection == "South" ? "▼" : "▶")
+            </h3>
+            @if (ExpandedDirection == "South")
+            {
+                <ol>
+                    <li>From Rte 100 after Plymouth, turn right on Rte 100A (Salt Ash Inn is on the corner)</li>
+                    <li>Go 0.9 mile and turn right on Lynds Hill Rd</li>
+                    <li>Go 2.6 miles on the twisting, country road</li>
+                    <li>Bethany Birches Camp is on your right and is clearly marked</li>
+                    <li>The cabin is on your right as you enter the parking lot</li>
+                </ol>
+            }
         </div>
 
         <div class="direction-box">
-            <h3>From East</h3>
-            <ol>
-                <li>From Rte 4 in Bridgewater, turn left on Rte 100A (general store on the corner)</li>
-                <li>Follow for 6 or 7 miles</li>
-                <li>Make a left on Lynds Hill Rd (sign in fair weather months)</li>
-                <li>Go 2.6 miles on the twisting, country road</li>
-                <li>Bethany Birches Camp is on your right and is clearly marked</li>
-                <li>The cabin is on your right as you enter the parking lot</li>
-            </ol>
+            <h3 @onclick="@(() => ToggleDirection("East"))" style="cursor: pointer;">
+                From East @(ExpandedDirection == "East" ? "▼" : "▶")
+            </h3>
+            @if (ExpandedDirection == "East")
+            {
+                <ol>
+                    <li>From Rte 4 in Bridgewater, turn left on Rte 100A (general store on the corner)</li>
+                    <li>Follow for 6 or 7 miles</li>
+                    <li>Make a left on Lynds Hill Rd (sign in fair weather months)</li>
+                    <li>Go 2.6 miles on the twisting, country road</li>
+                    <li>Bethany Birches Camp is on your right and is clearly marked</li>
+                    <li>The cabin is on your right as you enter the parking lot</li>
+                </ol>
+            }
         </div>
 
         <div class="direction-box">
-            <h3>From West</h3>
-            <ol>
-                <li>From Rte 4 in Killington, you'll see two general stores after a long straight-away</li>
-                <li>Turn right on Rte 100A</li>
-                <li>Follow for 6 or 7 miles</li>
-                <li>Make a left onto 100A</li>
-                <li>Go 0.9 miles and turn right onto Lynds Hill Rd</li>
-                <li>Go 2.6 miles on the twisting, country road</li>
-                <li>Bethany Birches Camp is on your right and is clearly marked</li>
-                <li>The cabin is on your right as you enter the parking lot</li>
-            </ol>
+            <h3 @onclick="@(() => ToggleDirection("West"))" style="cursor: pointer;">
+                From West @(ExpandedDirection == "West" ? "▼" : "▶")
+            </h3>
+            @if (ExpandedDirection == "West")
+            {
+                <ol>
+                    <li>From Rte 4 in Killington, you'll see two general stores after a long straight-away</li>
+                    <li>Turn right on Rte 100A</li>
+                    <li>Follow for 6 or 7 miles</li>
+                    <li>Make a left onto 100A</li>
+                    <li>Go 0.9 miles and turn right onto Lynds Hill Rd</li>
+                    <li>Go 2.6 miles on the twisting, country road</li>
+                    <li>Bethany Birches Camp is on your right and is clearly marked</li>
+                    <li>The cabin is on your right as you enter the parking lot</li>
+                </ol>
+            }
         </div>
 
         <div class="direction-box">
-            <h3>From North</h3>
-            <ol>
-                <li>From I-89 South, take exit 1 for Woodstock/RT 4</li>
-                <li>Turn West off the exit onto RT 4</li>
-                <li>Take it West through Woodstock into Bridgewater</li>
-                <li>In Bridgewater Corners, make a left at the general store onto 100A</li>
-                <li>Follow for 6 or 7 miles</li>
-                <li>Make a left on Lynds Hill Rd (sign in fair weather months)</li>
-                <li>Go 2.6 miles on the twisting, country road</li>
-                <li>Bethany Birches Camp is on your right and is clearly marked</li>
-                <li>The cabin is on your right as you enter the parking lot</li>
-            </ol>
+            <h3 @onclick="@(() => ToggleDirection("North"))" style="cursor: pointer;">
+                From North @(ExpandedDirection == "North" ? "▼" : "▶")
+            </h3>
+            @if (ExpandedDirection == "North")
+            {
+                <ol>
+                    <li>From I-89 South, take exit 1 for Woodstock/RT 4</li>
+                    <li>Turn West off the exit onto RT 4</li>
+                    <li>Take it West through Woodstock into Bridgewater</li>
+                    <li>In Bridgewater Corners, make a left at the general store onto 100A</li>
+                    <li>Follow for 6 or 7 miles</li>
+                    <li>Make a left on Lynds Hill Rd (sign in fair weather months)</li>
+                    <li>Go 2.6 miles on the twisting, country road</li>
+                    <li>Bethany Birches Camp is on your right and is clearly marked</li>
+                    <li>The cabin is on your right as you enter the parking lot</li>
+                </ol>
+            }
         </div>
     </section>
 
@@ -301,10 +324,16 @@
     private bool IsVisible { get; set; } = false;
     private bool ShowConfirmation { get; set; } = false;
     private bool ShowError { get; set; } = false;
+    private string? ExpandedDirection { get; set; } = null;
 
     private void ToggleWindowVisibility()
     {
         IsVisible = !IsVisible;
+    }
+
+    private void ToggleDirection(string direction)
+    {
+        ExpandedDirection = ExpandedDirection == direction ? null : direction;
     }
 
     private async Task OnValidSubmitHandler()
