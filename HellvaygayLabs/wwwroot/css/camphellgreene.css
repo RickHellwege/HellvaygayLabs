@@ -139,6 +139,14 @@ h3 {
     margin-bottom: 0.5rem;
 }
 
+.camp-note {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
 /* ============================================
    CAMP SIGN
    ============================================ */
@@ -373,6 +381,10 @@ section:hover {
     border-radius: 0.75rem;
     text-align: center;
     transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 100%;
 }
 
 .hotel-card:hover {
@@ -402,16 +414,19 @@ section:hover {
 }
 
 .hotel-link {
-    display: inline-block;
+    display: block;
     color: var(--primary);
     text-decoration: none;
     font-weight: 600;
-    margin-top: 1rem;
-    padding: 0.75rem 1.25rem;
+    margin-top: auto;
+    padding: 0.75rem 0.75rem;
     border: 2px solid var(--primary);
     border-radius: 0.5rem;
     transition: all var(--transition);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .hotel-link:hover {
@@ -577,9 +592,10 @@ section:hover {
     background: var(--bg-elevated) !important;
     color: var(--primary) !important;
     font-family: var(--font-heading) !important;
-    font-size: 1.75rem !important;
+    font-size: 2.25rem !important;
     border-bottom: 2px solid var(--primary) !important;
     padding: 1.5rem !important;
+    text-align: center !important;
 }
 
 .k-window-titlebar {
