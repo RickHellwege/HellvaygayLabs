@@ -3,6 +3,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>8737d8ea-0e0a-495c-9697-a21a6748394a</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Pages\Countdown.razor.css" />
