@@ -597,16 +597,21 @@ section:hover {
     border: 2px solid var(--primary) !important;
     box-shadow: var(--shadow-glow) !important;
     border-radius: 1rem !important;
+    width: 550px !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    overflow: hidden !important;
 }
 
 .k-window-title {
     background: var(--bg-elevated) !important;
     color: var(--primary) !important;
     font-family: var(--font-heading) !important;
-    font-size: 2.25rem !important;
+    font-size: 3.375rem !important;
     border-bottom: 2px solid var(--primary) !important;
-    padding: 1.5rem !important;
+    padding: 0.375rem !important;
     text-align: center !important;
+    line-height: 1 !important;
 }
 
 .k-window-titlebar {
@@ -617,19 +622,34 @@ section:hover {
 .k-window-content {
     background: var(--bg-card) !important;
     color: var(--text-primary) !important;
-    padding: 2rem !important;
+    padding: 1.2rem !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: calc(90vh - 6rem) !important;
+}
+
+/* Hide scrollbars for webkit browsers (Chrome, Safari, Edge) */
+.k-window-content::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Hide scrollbars for Firefox */
+.k-window-content {
+    scrollbar-width: none !important;
 }
 
 .k-form-label {
     color: var(--primary-light) !important;
     font-weight: 600 !important;
     font-size: 1rem !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.3rem !important;
 }
 
 .k-form-field,
 .k-form .k-form-field {
-    margin-bottom: 2rem !important;
+    margin-bottom: 1.2rem !important;
 }
 
 .k-form-field-wrap {
@@ -643,7 +663,7 @@ section:hover {
     color: var(--text-primary) !important;
     border: 1px solid rgba(77, 125, 100, 0.5) !important;
     border-radius: 0.5rem !important;
-    padding: 0.75rem !important;
+    padding: 0.45rem !important;
 }
 
 .k-form .k-textbox:focus,
@@ -692,7 +712,7 @@ section:hover {
 }
 
 .k-form-buttons {
-    margin-top: 2rem !important;
+    margin-top: 1.2rem !important;
     display: flex !important;
     justify-content: center !important;
 }
@@ -905,6 +925,33 @@ button.k-form-submit:not(.k-radio):not(.k-radio-label):active {
     .rsvp-button {
         font-size: 1.125rem;
         padding: 1rem 2rem;
+    }
+
+    .k-window {
+        width: 90vw !important;
+        max-width: 550px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .k-window {
+        width: 95vw !important;
+    }
+
+    .k-window-title {
+        font-size: 1.75rem !important;
+    }
+
+    .k-window-content {
+        padding: 1rem !important;
+    }
+
+    .k-form .k-form-buttons .k-button-primary:not(.k-radio):not(.k-radio-label),
+    .k-form .k-form-buttons .k-form-submit:not(.k-radio):not(.k-radio-label),
+    button.k-button-primary:not(.k-radio):not(.k-radio-label),
+    button.k-form-submit:not(.k-radio):not(.k-radio-label) {
+        padding: 0.5rem 1.5rem !important;
+        min-width: 120px !important;
     }
 }
 
