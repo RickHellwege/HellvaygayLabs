@@ -258,7 +258,7 @@
 
     <TelerikWindow Modal="true" @bind-Visible="@IsVisible">
         <WindowTitle>
-            <strong>RVSP</strong>
+            <strong>RSVP</strong>
         </WindowTitle>
         <WindowActions>
             <WindowAction Name="Close" />
@@ -274,7 +274,7 @@
                     <FormItem Field="@nameof(RSVP.Message)" LabelText="Message (optional)" />
                     <FormItem Field="@nameof(RSVP.Answer)">
                         <Template>
-                            <label for="firsttime" class="k-label k-form-label">Your Answer</label>
+                            <label for="firsttime" class="k-label k-form-label">RSVP Selection</label>
                             <div class="k-form-field-wrap">
                                 <TelerikRadioGroup Data="@RadioGroupData" @bind-Value="@rsvp.Answer" />
                                 <TelerikValidationMessage For="@(() => rsvp.Answer)" />
