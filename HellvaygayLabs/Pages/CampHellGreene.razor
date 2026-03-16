@@ -294,8 +294,7 @@
                    Width="500px">
         <DialogContent>
             <div class="confirmation-content">
-                <p>🎉 RSVP Submitted Successfully! 🎉</p>
-                <p>We can't wait to see you at Camp HellGreene!</p>
+                <p>RSVP Submitted Successfully!</p>
             </div>
         </DialogContent>
         <DialogButtons>
@@ -308,7 +307,7 @@
                    Width="500px">
         <DialogContent>
             <div class="error-content">
-                <p>⚠️ Error: Please try again later</p>
+                <p>Please try again later or call Rick</p>
             </div>
         </DialogContent>
         <DialogButtons>
@@ -383,7 +382,7 @@
 
         public string Message { get; set; }
 
-        [Required(ErrorMessage = "RSVP Answer is required")]
+        [Required(ErrorMessage = "RSVP Selection is required")]
         public string Answer { get; set; }
     }
 }
