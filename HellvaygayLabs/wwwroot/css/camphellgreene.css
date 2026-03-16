@@ -811,7 +811,7 @@ button.k-form-submit:not(.k-radio):not(.k-radio-label):active {
     background: var(--bg-elevated) !important;
     color: var(--primary) !important;
     font-family: var(--font-heading) !important;
-    font-size: 1.75rem !important;
+    font-size: 2.625rem !important;
     border-bottom: 2px solid var(--primary) !important;
     padding: 1.5rem !important;
 }
