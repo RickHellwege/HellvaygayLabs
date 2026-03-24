@@ -136,7 +136,9 @@
             </ul>
             
             <div class="cost-box">
-                <strong>Cost:</strong> $150 for the weekend, includes meals, beer, and wine.
+                <strong>Costs:</strong>
+                <p>Full Weekend (food, activities, beer, & wine, and bed in cabin) $150</p>
+                <p>Full Weekend (food, activities, beer, & wine only. No bed    )  $75</p>
             </div>
         </div>
     </section>
@@ -144,15 +146,16 @@
     <section class="activities-section">
         <h2>🎯 Survival Activities</h2>
         <div class="activities-grid">
-            <div class="activity-card">🎲 Board Games</div>
-            <div class="activity-card">🧗 Indoor Rock Climbing (one day only)</div>
-            <div class="activity-card">🚣 Pond Activities<br/><small>Boats, kayaks, water slide, water trampoline (weather permitting)</small></div>
+            <div class="activity-card">🔥 Nightly Bonfires<br /><small>Gourmet SMORES Station</small></div>
+            <div class="activity-card">🍺 Drinking<br /><small>Beer & wine allowed. Liquor only at reception with licensed bartender</small></div>
+            <div class="activity-card">🧗 Indoor Rock Climbing<small>One day only</small></div>
+            <div class="activity-card">🎲 Board Games<small>Small library and BYO</small></div>
+            <div class="activity-card">🚣 Lake Activities<br/><small>Boats, kayaks, water slide, water trampoline (weather permitting)</small></div>
             <div class="activity-card">🥾 Hiking Trails</div>
-            <div class="activity-card">🥏 Frisbee Golf</div>
-            <div class="activity-card">⚽ Tetherball</div>
-            <div class="activity-card">🏀 Basketball Court<br/><small>Balls and nets provided</small></div>
-            <div class="activity-card">🔥 Campfires</div>
-            <div class="activity-card">🍺 Drinking<br/><small>Beer & wine allowed. Liquor only at reception with licensed bartender</small></div>
+            <div class="activity-card">🗺️ GPS Scavenger Hunt</div>
+            <div class="activity-card">🎯 Self-Defense Training<small>Archery, hatchet throwing, and slingshot target practice.</small></div>
+            <div class="activity-card">🌙 Midnight Woods Walk<br/><small>Redlight only</small></div>
+            <div class="activity-card">🔦 Flashlight Tag</div>
         </div>
     </section>
 
@@ -364,8 +367,9 @@
 
     private IEnumerable<string> RadioGroupData { get; set; } = new List<string> {
         "Not Attending",
-        "Attending (Reception Only)",
-        "Attending (Full Weekend Experience)"};
+        "Attending - Reception Only",
+        "Attending - Full Weekend (Food & Activities)",
+        "Attending - Full Weekend (Food, Activities, & Bed)"};
 
 
     public RSVP rsvp = new RSVP();
