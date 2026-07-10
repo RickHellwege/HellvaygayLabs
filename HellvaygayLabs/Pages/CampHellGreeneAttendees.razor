@@ -1,0 +1,108 @@
+@page "/CampHellGreene/Attendees"
+@using System.ComponentModel.DataAnnotations
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+
+<link rel="stylesheet" href="css/camphellgreene.css" />
+
+<PageTitle>Camp HellGreene Attendees</PageTitle>
+
+<div class="camp-hellgreene">
+    <header class="camp-header">
+        <h1 class="camp-title">Camp Hellgreene Lake</h1>
+        <p class="camp-subtitle">Attendee Information</p>
+        <p class="camp-date">
+            <strong>-Reception Only-</strong>
+            Saturday, October 10, 2026 at 5:00 PM
+        </p>
+        <p class="camp-date">
+            <strong>-Full Camp Experience-</strong>
+            Friday, October 9 at 3:00 PM - Monday, October 12 at 11:00 AM
+        </p>
+    </header>
+
+    <div class="camp-sign">
+        <img src="images/CampHellGreeneSign.png" alt="Camp HellGreene Lake Sign" />
+    </div>
+
+    <nav class="attendee-nav">
+        <button @onclick="@(() => ScrollToSection("directions"))" class="nav-link">🗺️ Directions</button>
+        <button @onclick="@(() => ScrollToSection("schedule"))" class="nav-link">📅 Schedule</button>
+        <button @onclick="@(() => ScrollToSection("attire"))" class="nav-link">👔 Reception Attire</button>
+        <button @onclick="@(() => ScrollToSection("makeup"))" class="nav-link">🎨 Special FX Makeup</button>
+        <button @onclick="@(() => ScrollToSection("fees"))" class="nav-link">💰 Fees</button>
+    </nav>
+
+    <section class="directions-section" id="directions">
+        <h2>🗺️ Directions</h2>
+        <div class="info-box">
+            <p>Detailed directions to Camp Bethany Birches will be provided here.</p>
+            <p><strong>Remember:</strong> There is NO CELL SERVICE at the camp. Print your directions!</p>
+        </div>
+    </section>
+
+    <section class="schedule-section" id="schedule">
+        <h2>📅 Schedule</h2>
+        <div class="info-box">
+            <p>Weekend schedule and activity times will be posted here.</p>
+        </div>
+    </section>
+
+    <section class="attire-section" id="attire">
+        <h2>👔 Reception Attire</h2>
+        <div class="info-box">
+            <p>Dress code and theme details for the Saturday evening reception.</p>
+        </div>
+    </section>
+
+    <section class="makeup-section" id="makeup">
+        <h2>🎨 Special FX Makeup</h2>
+        <div class="info-box">
+            <p>Information about special effects makeup services available at the reception.</p>
+        </div>
+    </section>
+
+    <section class="fees-section" id="fees">
+        <h2>💰 Fees</h2>
+        <div class="info-box">
+            <p>Payment information and fee breakdown for weekend attendees.</p>
+        </div>
+    </section>
+
+    <section class="attendees-section">
+        <h2>👥 Who's Surviving Camp HellGreene?</h2>
+        <div class="info-box">
+            <p>Check out who else is brave enough to join us for this unforgettable weekend!</p>
+        </div>
+
+        <!-- Attendees list will go here -->
+        <div class="attendees-grid">
+            <div class="attendee-card">
+                <h3>Rick & [Partner Name]</h3>
+                <p class="attendee-status">🎃 Full Weekend Experience</p>
+            </div>
+
+            <!-- More attendee cards can be added here -->
+        </div>
+    </section>
+
+    <section class="rsvp-section">
+        <h2>📝 Not on the list?</h2>
+        <div class="rsvp-content">
+            <p>Make sure to RSVP so we can add you!</p>
+            <a href="/CampHellGreene" class="rsvp-button">Go to RSVP Page</a>
+        </div>
+    </section>
+
+    <footer class="camp-footer">
+        <p>🌲 We can't wait to see you at Camp HellGreene! 🌲</p>
+        <p><em>No actual murders planned... probably.</em></p>
+    </footer>
+</div>
+
+@code {
+    private async Task ScrollToSection(string sectionId)
+    {
+        await JSRuntime.InvokeVoidAsync("scrollToSection", sectionId);
+    }
+}
