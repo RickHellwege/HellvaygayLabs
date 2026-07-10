@@ -2,6 +2,7 @@
 @using System.ComponentModel.DataAnnotations
 @inject HttpClient Http
 @inject IJSRuntime JSRuntime
+@implements IDisposable
 
 <link rel="stylesheet" href="css/camphellgreene.css" />
 
@@ -49,16 +50,55 @@
     </section>
 
     <section class="attire-section" id="attire">
-        <h2>👔 Reception Attire</h2>
+        <h2>👔 Dress Code - Spooky Chic</h2>
         <div class="info-box">
-            <p>Dress code and theme details for the Saturday evening reception.</p>
+            <p>Cocktail attire, Halloween costume, or a Halloween-cocktail mashup.</p>
+            <p>Zombies, vampires, skeletons, and slasher victims in cocktail attire are highly encouraged!</p>
         </div>
     </section>
 
     <section class="makeup-section" id="makeup">
-        <h2>🎨 Special FX Makeup</h2>
+        <h2>🎨 Special FX Makeup by Jessica Miller</h2>
         <div class="info-box">
-            <p>Information about special effects makeup services available at the reception.</p>
+            <div class="makeup-profile-section">
+                <img src="images/sfxmakeup/Profile.jpg" alt="Jessica Miller - SFX Makeup Artist" class="makeup-profile-img" />
+            </div>
+            <p>
+                Jessica Miller is a talented special effects makeup artist with five years of experience in the haunted house industry, 
+                as well as on private photography and film shoots. She'll be stationed at our reception for a few hours to do 
+                <strong>complimentary 10-15 minute airbrush makeup looks</strong> for any guests who want a quick, spooky transformation!
+            </p>
+            <p>
+                You can find more of her incredible work on Instagram 
+                <a href="https://www.instagram.com/badblood.sfx" target="_blank" class="info-link">@@badblood.sfx</a> 
+                Bringing your own inspiration photos from Google or Pinterest is also highly welcome and encouraged.
+            </p>
+            <div class="makeup-carousel">
+                <button class="carousel-btn carousel-btn-prev" @onclick="PreviousImage">‹</button>
+                <div class="carousel-container">
+                    <img src="@GetCurrentImagePath()" alt="SFX Makeup Example @(currentImageIndex + 1)" class="carousel-img" />
+                    <div class="carousel-counter">@(currentImageIndex + 1) / @makeupImages.Count</div>
+                </div>
+                <button class="carousel-btn carousel-btn-next" @onclick="NextImage">›</button>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>With Jessica, you can live your nightmares and perfect your costume in minutes. Think:</h3>
+            <ul class="makeup-options">
+                <li><strong>💀 The Skull / Half-Skull Face:</strong> An easy, striking classic.</li>
+                <li><strong>🧟 Classic Zombie / Slasher Victim:</strong> Perfect for a high-fashion undead look or pairing with distressed clothing.</li>
+                <li><strong>🧙‍♀️ The Witch or Demon:</strong> A fast, vibrant green or deep crimson airbrush base with dark, dramatic shadows that transform your look instantly.</li>
+            </ul>
+        </div>
+
+        <div class="info-box upgrade-box">
+            <h3>Want to go all out? Upgrade available!</h3>
+            <p>
+                Interested in a more in-depth transformation? You can book a detailed, premium makeup look with Jessica for 
+                <strong class="price-highlight">$100</strong> with advance notice. If you would like to purchase and include custom prosthetics, 
+                please reach out to us ahead of time so we can coordinate with her!
+            </p>
         </div>
     </section>
 
@@ -69,40 +109,66 @@
         </div>
     </section>
 
-    <section class="attendees-section">
-        <h2>👥 Who's Surviving Camp HellGreene?</h2>
-        <div class="info-box">
-            <p>Check out who else is brave enough to join us for this unforgettable weekend!</p>
-        </div>
-
-        <!-- Attendees list will go here -->
-        <div class="attendees-grid">
-            <div class="attendee-card">
-                <h3>Rick & [Partner Name]</h3>
-                <p class="attendee-status">🎃 Full Weekend Experience</p>
-            </div>
-
-            <!-- More attendee cards can be added here -->
-        </div>
-    </section>
-
-    <section class="rsvp-section">
-        <h2>📝 Not on the list?</h2>
-        <div class="rsvp-content">
-            <p>Make sure to RSVP so we can add you!</p>
-            <a href="/CampHellGreene" class="rsvp-button">Go to RSVP Page</a>
-        </div>
-    </section>
-
-    <footer class="camp-footer">
-        <p>🌲 We can't wait to see you at Camp HellGreene! 🌲</p>
-        <p><em>No actual murders planned... probably.</em></p>
-    </footer>
 </div>
 
 @code {
+    private int currentImageIndex = 0;
+    private List<string> makeupImages = new List<string>
+    {
+        "images/sfxmakeup/1.jpg",
+        "images/sfxmakeup/2.jpg",
+        "images/sfxmakeup/3.jpg",
+        "images/sfxmakeup/4.jpg",
+        "images/sfxmakeup/5.jpg",
+        "images/sfxmakeup/6.jpg",
+        "images/sfxmakeup/7.jpg",
+        "images/sfxmakeup/8.jpg",
+        "images/sfxmakeup/9.jpg",
+        "images/sfxmakeup/10.jpg",
+        "images/sfxmakeup/11.jpg",
+        "images/sfxmakeup/12.jpg",
+        "images/sfxmakeup/13.jpg",
+        "images/sfxmakeup/14.jpg",
+        "images/sfxmakeup/15.jpg",
+        "images/sfxmakeup/16.jpg"
+    };
+    private System.Threading.Timer? carouselTimer;
+
+    protected override void OnInitialized()
+    {
+        // Start auto-rotation timer (5 seconds)
+        carouselTimer = new System.Threading.Timer(async _ =>
+        {
+            await InvokeAsync(() =>
+            {
+                NextImage();
+                StateHasChanged();
+            });
+        }, null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
+    }
+
+    private string GetCurrentImagePath()
+    {
+        return makeupImages[currentImageIndex];
+    }
+
+    private void NextImage()
+    {
+        currentImageIndex = (currentImageIndex + 1) % makeupImages.Count;
+    }
+
+    private void PreviousImage()
+    {
+        currentImageIndex = (currentImageIndex - 1 + makeupImages.Count) % makeupImages.Count;
+    }
+
     private async Task ScrollToSection(string sectionId)
     {
         await JSRuntime.InvokeVoidAsync("scrollToSection", sectionId);
+    }
+
+    public void Dispose()
+    {
+        carouselTimer?.Dispose();
     }
 }
