@@ -1,8 +1,9 @@
 ﻿@page "/CampHellGreene"
 @using System.ComponentModel.DataAnnotations
 @inject HttpClient Http
-
-<link rel="stylesheet" href="css/camphellgreene.css" />
+@inject IJSRuntime JSRuntime
+@inject NavigationManager Navigation
+@implements IDisposable
 
 <PageTitle>Camp HellGreene Lake Wedding Reception</PageTitle>
 
@@ -18,9 +19,11 @@
             <strong>-Full Camp Experience-</strong>
             Friday, October 9 at 3:00 PM - Monday, October 12 at 11:00 AM
         </p>
-        <p class="camp-note camp-rsvp-note">
-            Don't forget to RSVP at the bottom of the page.
-        </p>
+        <div class="weekend-button-container">
+            <button type="button" class="camp-weekend-nav-button" @onclick="NavigateToWeekendPage">
+                📅 View Weekend Schedule & Details
+            </button>
+        </div>
         <p class="camp-note">
             All guests must be 21+
         </p>
@@ -30,20 +33,6 @@
     <div class="camp-sign">
         <img src="images/CampHellGreeneSign.png" alt="Camp HellGreene Lake Sign" />
     </div>
-
-    <section class="adventure-section">
-        <h2>🧭 Choose Your Own Adventure</h2>
-        <div class="adventure-grid">
-            <a href="/CampHellGreene#local-accommodations" class="adventure-box">
-                <h3>Reception Only</h3>
-                <p>Stay off-site and join us Saturday at 5PM for Reception</p>
-            </a>
-            <a href="/CampHellGreene#sleepaway-section" class="adventure-box">
-                <h3>Weekend Camp Experience</h3>
-                <p>Stay on-site at Bethany Birch for a weekend of thrills, chills, and surprises.</p>
-            </a>
-        </div>
-    </section>
 
     <section class="warning-section">
         <div class="warning-box">
@@ -63,99 +52,56 @@
 
     </section>
 
-    <section class="local-accommodations" id="local-accommodations">
-        <h2>🏨 Local Accommodations</h2>
-        <p class="accommodations-intro">Hotels ordered by distance from Camp Bethany Birch:</p>
-        
-        <div class="hotel-grid">
-            <div class="hotel-card">
-                <h3>Killington Mountain Lodge</h3>
-                <p class="hotel-collection">Tapestry Collection by Hilton</p>
-                <p class="hotel-distance">~10.5 miles</p>
-                <a href="https://killingtonmountainlodge.com" target="_blank" class="hotel-link">killingtonmountainlodge.com</a>
-            </div>
-
-            <div class="hotel-card">
-                <h3>The Vermont Inn</h3>
-                <p class="hotel-distance">~13.3 miles</p>
-                <a href="https://vermontinn.com" target="_blank" class="hotel-link">vermontinn.com</a>
-            </div>
-
-            <div class="hotel-card">
-                <h3>Jackson Gore Inn</h3>
-                <p class="hotel-collection">at Okemo Mountain Resort</p>
-                <p class="hotel-distance">~14.5 miles</p>
-                <a href="https://okemo.com/jackson-gore-inn" target="_blank" class="hotel-link">okemo.com/jackson-gore-inn</a>
-            </div>
-
-            <div class="hotel-card">
-                <h3>Mountain Lodge at Okemo</h3>
-                <p class="hotel-distance">~15.0 miles</p>
-                <a href="https://okemo.com/mountain-lodge" target="_blank" class="hotel-link">okemo.com/mountain-lodge</a>
-            </div>
-
-            <div class="hotel-card">
-                <h3>Okemo Mountain Resort</h3>
-                <p class="hotel-distance">~15.0 miles</p>
-                <a href="https://okemo.com" target="_blank" class="hotel-link">okemo.com</a>
-            </div>
-
-            <div class="hotel-card">
-                <h3>The Governor's Inn</h3>
-                <p class="hotel-distance">~15.5 miles</p>
-                <a href="https://thegovernorsinn.com" target="_blank" class="hotel-link">thegovernorsinn.com</a>
-            </div>
-        </div>
-        <p class="lodging-warning">
-            <strong>⚠️ Book Lodging ASAP!</strong><br />
-            October is peak foliage season on the Route 100 Scenic Byway.<br />
-            Hotels are selling out fast... don't get stuck in the woods!
-        </p>
-    </section>
-
-    <section class="sleepaway-section" id="sleepaway-section">
-        <h2>🏕️ Grown Up Sleepaway Camp</h2>
-        <p class="camp-dates"><strong>Friday, October 9 at 3:00 PM - Monday, October 12 at 11:00 AM</strong></p>
-        <p class="camp-subtitle-text">Indigenous People's Day Weekend</p>
-        
+    <section class="attire-section">
+        <h2>👔 Dress Code - Spooky Chic</h2>
         <div class="info-box">
-            <h3>Cabin Details</h3>
-            <ul>
-                <li>Heated cabin at an off-season summer camp</li>
-                <li>Sleeps up to 32 brave souls</li>
-                <li>Twin beds in shared rooms and lofts</li>
-                <li>Includes clean blanket, pillow, and pillow case</li>
-                <li>2 indoor bathrooms + bathhouse on grounds</li>
-                <li>Kitchen and basement rec room</li>
-            </ul>
-            
-            <h3>What to Bring</h3>
-            <ul>
-                <li>🛏️ BYO bedding and towels</li>
-                <li>🎒 Your survival kit (just kidding... or are we?)</li>
-            </ul>
-            
-            <div class="cost-box">
-                <strong>Costs:</strong>
-                <p>Full Weekend (food, activities, beer, & wine, and bed in cabin) $150</p>
-                <p>Full Weekend (food, activities, beer, & wine only. No bed    )  $75</p>
-            </div>
+            <p>Cocktail attire, Halloween costume, or a Halloween-cocktail mashup.</p>
+            <p>Zombies, vampires, skeletons, and slasher victims in cocktail attire are highly encouraged!</p>
         </div>
     </section>
 
-    <section class="activities-section">
-        <h2>🎯 Survival Activities</h2>
-        <div class="activities-grid">
-            <div class="activity-card">🔥 Nightly Bonfires<br /><small>Gourmet SMORES Station</small></div>
-            <div class="activity-card">🍺 Drinking<br /><small>Beer & wine allowed. Liquor only at reception with licensed bartender</small></div>
-            <div class="activity-card">🧗 Indoor Rock Climbing<small>One day only</small></div>
-            <div class="activity-card">🎲 Board Games<small>Small library and BYO</small></div>
-            <div class="activity-card">🚣 Lake Activities<br/><small>Boats, kayaks, water slide, water trampoline (weather permitting)</small></div>
-            <div class="activity-card">🥾 Hiking Trails</div>
-            <div class="activity-card">🗺️ GPS Scavenger Hunt</div>
-            <div class="activity-card">🎯 Self-Defense Training<small>Archery, hatchet throwing, and slingshot target practice.</small></div>
-            <div class="activity-card">🌙 Midnight Woods Walk<br/><small>Redlight only</small></div>
-            <div class="activity-card">🔦 Flashlight Tag</div>
+    <section class="makeup-section">
+        <h2>🎨 Special FX Makeup by Jessica Miller</h2>
+        <div class="info-box">
+            <div class="makeup-profile-section">
+                <img src="images/sfxmakeup/Profile.jpg" alt="Jessica Miller - SFX Makeup Artist" class="makeup-profile-img" />
+            </div>
+            <p>
+                Jessica Miller is a talented special effects makeup artist with five years of experience in the haunted house industry, 
+                as well as on private photography and film shoots. She'll be stationed at our reception for a few hours to do 
+                <strong>complimentary 10-15 minute airbrush makeup looks</strong> for any guests who want a quick, spooky transformation!
+            </p>
+            <p>
+                You can find more of her incredible work on Instagram 
+                <a href="https://www.instagram.com/badblood.sfx" target="_blank" class="info-link">@@badblood.sfx</a> 
+                Bringing your own inspiration photos from Google or Pinterest is also highly welcome and encouraged.
+            </p>
+            <div class="makeup-carousel">
+                <button class="carousel-btn carousel-btn-prev" @onclick="PreviousImage">‹</button>
+                <div class="carousel-container">
+                    <img src="@GetCurrentImagePath()" alt="SFX Makeup Example @(currentImageIndex + 1)" class="carousel-img" />
+                    <div class="carousel-counter">@(currentImageIndex + 1) / @makeupImages.Count</div>
+                </div>
+                <button class="carousel-btn carousel-btn-next" @onclick="NextImage">›</button>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>With Jessica, you can live your nightmares and perfect your costume in minutes. Think:</h3>
+            <ul class="makeup-options">
+                <li><strong>💀 The Skull / Half-Skull Face:</strong> An easy, striking classic.</li>
+                <li><strong>🧟 Classic Zombie / Slasher Victim:</strong> Perfect for a high-fashion undead look or pairing with distressed clothing.</li>
+                <li><strong>🧙‍♀️ The Witch or Demon:</strong> A fast, vibrant green or deep crimson airbrush base with dark, dramatic shadows that transform your look instantly.</li>
+            </ul>
+        </div>
+
+        <div class="info-box upgrade-box">
+            <h3>Want to go all out? Upgrade available!</h3>
+            <p>
+                Interested in a more in-depth transformation? You can book a detailed, premium makeup look with Jessica for 
+                <strong class="price-highlight">$100</strong> with advance notice. If you would like to purchase and include custom prosthetics, 
+                please reach out to us ahead of time so we can coordinate with her!
+            </p>
         </div>
     </section>
 
@@ -254,69 +200,10 @@
     <section class="rsvp-section">
         <h2>📝 RSVP</h2>
         <div class="rsvp-content">
-            <p>Let us know if you'll be joining us at Camp HellGreene!</p>
-            <button @onclick="ToggleWindowVisibility" class="rsvp-button">Click Here to RSVP</button>
+            <p>RSVPs are now closed. Thank you for your interest!</p>
         </div>
     </section>
 
-    <TelerikWindow Modal="true" @bind-Visible="@IsVisible">
-        <WindowTitle>
-            <strong>RSVP</strong>
-        </WindowTitle>
-        <WindowActions>
-            <WindowAction Name="Close" />
-        </WindowActions>
-        <WindowContent>
-            <TelerikForm Model="@rsvp" OnValidSubmit="@OnValidSubmitHandler">
-                <FormValidation>
-                    <DataAnnotationsValidator />
-                </FormValidation>
-                <FormItems>
-                    <FormItem Field="@nameof(RSVP.Name)" LabelText="Name" />
-                    <FormItem Field="@nameof(RSVP.Email)" LabelText="Email" />
-                    <FormItem Field="@nameof(RSVP.Message)" LabelText="Message (optional)" />
-                    <FormItem Field="@nameof(RSVP.Answer)">
-                        <Template>
-                            <label for="firsttime" class="k-label k-form-label">RSVP Selection</label>
-                            <div class="k-form-field-wrap">
-                                <TelerikRadioGroup Data="@RadioGroupData" @bind-Value="@rsvp.Answer" />
-                                <TelerikValidationMessage For="@(() => rsvp.Answer)" />
-                            </div>
-                        </Template>
-                    </FormItem>
-
-                </FormItems>
-            </TelerikForm>
-
-        </WindowContent>
-
-    </TelerikWindow>
-
-    <TelerikDialog @bind-Visible="@ShowConfirmation"
-                   Title="Success!"
-                   Width="500px">
-        <DialogContent>
-            <div class="confirmation-content">
-                <p>RSVP Submitted Successfully!</p>
-            </div>
-        </DialogContent>
-        <DialogButtons>
-            <button class="confirmation-button" @onclick="@(() => ShowConfirmation = false)">OK</button>
-        </DialogButtons>
-    </TelerikDialog>
-
-    <TelerikDialog @bind-Visible="@ShowError"
-                   Title="Error"
-                   Width="500px">
-        <DialogContent>
-            <div class="error-content">
-                <p>Please try again later or call Rick</p>
-            </div>
-        </DialogContent>
-        <DialogButtons>
-            <button class="error-button" @onclick="@(() => ShowError = false)">OK</button>
-        </DialogButtons>
-    </TelerikDialog>
 
     <footer class="camp-footer">
         <p>🌲 We can't wait to see you at Camp HellGreene! 🌲</p>
@@ -326,67 +213,71 @@
 
 @code {
 
-    private bool IsVisible { get; set; } = false;
-    private bool ShowConfirmation { get; set; } = false;
-    private bool ShowError { get; set; } = false;
     private string? ExpandedDirection { get; set; } = null;
-
-    private void ToggleWindowVisibility()
-    {
-        IsVisible = !IsVisible;
-    }
 
     private void ToggleDirection(string direction)
     {
         ExpandedDirection = ExpandedDirection == direction ? null : direction;
     }
 
-    private async Task OnValidSubmitHandler()
+    private int currentImageIndex = 0;
+    private List<string> makeupImages = new List<string>
     {
-        // Send data to your API
-        var response = await Http.PostAsJsonAsync("https://formspree.io/f/mdalvvpa", rsvp);
+        "images/sfxmakeup/1.jpg",
+        "images/sfxmakeup/2.jpg",
+        "images/sfxmakeup/3.jpg",
+        "images/sfxmakeup/4.jpg",
+        "images/sfxmakeup/5.jpg",
+        "images/sfxmakeup/6.jpg",
+        "images/sfxmakeup/7.jpg",
+        "images/sfxmakeup/8.jpg",
+        "images/sfxmakeup/9.jpg",
+        "images/sfxmakeup/10.jpg",
+        "images/sfxmakeup/11.jpg",
+        "images/sfxmakeup/12.jpg",
+        "images/sfxmakeup/13.jpg",
+        "images/sfxmakeup/14.jpg",
+        "images/sfxmakeup/15.jpg",
+        "images/sfxmakeup/16.jpg"
+    };
+    private System.Threading.Timer? carouselTimer;
 
-        if (response.IsSuccessStatusCode)
+    protected override void OnInitialized()
+    {
+        // Start auto-rotation timer (5 seconds)
+        carouselTimer = new System.Threading.Timer(async _ =>
         {
-            // Handle successful submission (e.g., show a success message, redirect)
-            Console.WriteLine("Form submitted successfully!");
-            rsvp = new RSVP(); // Clear the form
-            IsVisible = false; // Close the window
-            ShowConfirmation = true; // Show confirmation dialog
-        }
-        else
-        {
-            // Handle error
-            Console.WriteLine($"Error submitting form: {response.StatusCode}");
-            rsvp = new RSVP(); // Clear the form
-            IsVisible = false; // Close the window
-            ShowError = true; // Show error dialog
-        }
+            await InvokeAsync(() =>
+            {
+                NextImage();
+                StateHasChanged();
+            });
+        }, null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
     }
 
-
-    private IEnumerable<string> RadioGroupData { get; set; } = new List<string> {
-        "Not Attending",
-        "Attending - Reception Only",
-        "Attending - Full Weekend (Food & Activities)",
-        "Attending - Full Weekend (Food, Activities, & Bed)"};
-
-
-    public RSVP rsvp = new RSVP();
-
-    public class RSVP
+    private string GetCurrentImagePath()
     {
-        [Required(ErrorMessage = "Name is required")]
-        public string Name { get; set; }
-
-        [Required(ErrorMessage = "Email is required")]
-        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org)$",
-                       ErrorMessage = "Email must be a valid .com, .net, or .org address.")]
-        public string Email { get; set; }
-
-        public string Message { get; set; }
-
-        [Required(ErrorMessage = "RSVP Selection is required")]
-        public string Answer { get; set; }
+        return makeupImages[currentImageIndex];
     }
+
+    private void NextImage()
+    {
+        currentImageIndex = (currentImageIndex + 1) % makeupImages.Count;
+    }
+
+    private void PreviousImage()
+    {
+        currentImageIndex = (currentImageIndex - 1 + makeupImages.Count) % makeupImages.Count;
+    }
+
+    private void NavigateToWeekendPage()
+    {
+        Navigation.NavigateTo("/CampHellGreene/Weekend");
+    }
+
+    public void Dispose()
+    {
+        carouselTimer?.Dispose();
+    }
+
 }

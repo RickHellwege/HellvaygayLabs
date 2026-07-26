@@ -105,7 +105,53 @@ h3 {
     position: absolute;
     inset: 0;
     background: radial-gradient(circle at 30% 50%, rgba(217, 119, 6, 0.1), transparent 70%);
+    pointer-events: none;
 }
+
+/* Button inside camp-header */
+.camp-header button {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.875rem 2rem !important;
+    background: linear-gradient(135deg, #2d5a45, #3a7558) !important;
+    background-color: #2d5a45 !important;
+    background-image: linear-gradient(135deg, #2d5a45, #3a7558) !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-radius: 1rem !important;
+    border: 2px solid #d97706 !important;
+    border-style: solid !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    z-index: 10 !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+.camp-header button:hover {
+    background: linear-gradient(135deg, #b45309, #d97706) !important;
+    background-color: #d97706 !important;
+    background-image: linear-gradient(135deg, #b45309, #d97706) !important;
+    border-color: #fbbf24 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5) !important;
+    color: #0a1f14 !important;
+}
+
+.camp-header button:active,
+.camp-header button:focus {
+    transform: translateY(0) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    outline: none !important;
+}
+
 
 .camp-title {
     font-family: var(--font-heading);
@@ -123,6 +169,8 @@ h3 {
     color: var(--text-secondary);
     margin: 0.5rem 0 0.75rem 0;
     font-weight: 500;
+    position: relative;
+    z-index: 1;
 }
 
 .camp-date {
@@ -130,6 +178,8 @@ h3 {
     color: var(--text-secondary);
     margin: 0.5rem 0;
     font-weight: 600;
+    position: relative;
+    z-index: 1;
 }
 
 .camp-date strong {
@@ -145,6 +195,8 @@ h3 {
     margin-top: 1rem;
     font-style: italic;
     font-weight: 500;
+    position: relative;
+    z-index: 1;
 }
 
 .camp-rsvp-note {
@@ -845,6 +897,143 @@ section:hover {
 
 .rsvp-button:active {
     transform: translateY(0);
+}
+
+.weekend-button-container {
+    text-align: center;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* Universal button styling inside weekend-button-container */
+.weekend-button-container button {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.875rem 2rem !important;
+    background: linear-gradient(135deg, #2d5a45, #3a7558) !important;
+    background-color: #2d5a45 !important;
+    background-image: linear-gradient(135deg, #2d5a45, #3a7558) !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-radius: 1rem !important;
+    border: 2px solid #d97706 !important;
+    border-style: solid !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    z-index: 10 !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+.weekend-button-container button:hover {
+    background: linear-gradient(135deg, #b45309, #d97706) !important;
+    background-color: #d97706 !important;
+    background-image: linear-gradient(135deg, #b45309, #d97706) !important;
+    border-color: #fbbf24 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5) !important;
+    color: #0a1f14 !important;
+}
+
+.weekend-button-container button:active,
+.weekend-button-container button:focus {
+    transform: translateY(0) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    outline: none !important;
+}
+
+button.weekend-button {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem !important;
+    background: linear-gradient(135deg, #2d5a45, #3a7558) !important;
+    background-color: #2d5a45 !important;
+    background-image: linear-gradient(135deg, #2d5a45, #3a7558) !important;
+    color: var(--text-primary) !important;
+    text-decoration: none;
+    border-radius: 1rem !important;
+    border: 2px solid var(--primary) !important;
+    border-style: solid !important;
+    font-weight: 600;
+    font-size: 1.1rem !important;
+    font-family: var(--font-body) !important;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    transition: all var(--transition);
+    position: relative;
+    z-index: 10;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+button.weekend-button:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+    background-color: var(--primary) !important;
+    background-image: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+    border-color: var(--primary-light) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5) !important;
+    color: var(--bg-primary) !important;
+}
+
+button.weekend-button:active,
+button.weekend-button:focus {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    outline: none !important;
+}
+
+.weekend-button-container button.camp-weekend-nav-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.875rem 2rem !important;
+    background: linear-gradient(135deg, #2d5a45, #3a7558) !important;
+    background-color: #2d5a45 !important;
+    background-image: linear-gradient(135deg, #2d5a45, #3a7558) !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-radius: 1rem !important;
+    border: 2px solid #d97706 !important;
+    border-style: solid !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    z-index: 10 !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+.weekend-button-container button.camp-weekend-nav-button:hover {
+    background: linear-gradient(135deg, #b45309, #d97706) !important;
+    background-color: #d97706 !important;
+    background-image: linear-gradient(135deg, #b45309, #d97706) !important;
+    border-color: #fbbf24 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5) !important;
+    color: #0a1f14 !important;
+}
+
+.weekend-button-container button.camp-weekend-nav-button:active,
+.weekend-button-container button.camp-weekend-nav-button:focus {
+    transform: translateY(0) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    outline: none !important;
 }
 
 /* ============================================

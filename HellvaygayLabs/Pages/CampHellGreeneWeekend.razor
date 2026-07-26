@@ -1,0 +1,126 @@
+@page "/CampHellGreene/Weekend"
+@using System.ComponentModel.DataAnnotations
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+
+<link rel="stylesheet" href="css/camphellgreene.css" />
+
+<PageTitle>Camp HellGreene Weekend Experience</PageTitle>
+
+<div class="camp-hellgreene">
+    <header class="camp-header">
+        <h1 class="camp-title">Camp Hellgreene Lake</h1>
+        <p class="camp-subtitle">Weekend Experience Information</p>
+        <p class="camp-date">
+            <strong>-Reception-</strong>
+            Saturday, October 10, 2026 at 5:00 PM
+        </p>
+        <p class="camp-date">
+            <strong>-Full Camp Experience-</strong>
+            Friday, October 9 at 3:00 PM - Monday, October 12 at 11:00 AM
+        </p>
+    </header>
+
+    <div class="camp-sign">
+        <img src="images/CampHellGreeneSign.png" alt="Camp HellGreene Lake Sign" />
+    </div>
+
+    <nav class="attendee-nav">
+        <button @onclick="@(() => ScrollToSection("schedule"))" class="nav-link">📅 Schedule</button>
+        <button @onclick="@(() => ScrollToSection("fees"))" class="nav-link">💰 Fees</button>
+    </nav>
+
+    <section class="schedule-section" id="schedule">
+        <h2>📅 Schedule</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+
+            <div class="info-box" style="text-align: center;">
+                <div style="background-color: rgba(139, 0, 0, 0.3); padding: 10px; margin: -15px -15px 15px -15px; border-radius: 8px 8px 0 0;">
+                    <h3 style="margin: 0; color: #ff6b6b;">Friday</h3>
+                    <p style="margin: 5px 0 0 0; font-size: 1.2rem;"><strong>October 9th</strong></p>
+                </div>
+                <div style="text-align: left;">
+                    <p>Arrival & Check-In</p>
+                    <p>Welcome & Orientation</p>
+                    <p>Free Time / Lake</p>
+                    <p>Dinner</p>
+                    <p>Evening Activities</p>
+                    <p>Campfire & S'mores</p>
+                    <p>Quiet Hours</p>
+                </div>
+            </div>
+
+            <div class="info-box" style="text-align: center;">
+                <div style="background-color: rgba(255, 69, 0, 0.4); padding: 10px; margin: -15px -15px 15px -15px; border-radius: 8px 8px 0 0;">
+                    <h3 style="margin: 0; color: #ff6b6b;">Saturday</h3>
+                    <p style="margin: 5px 0 0 0; font-size: 1.2rem;"><strong>October 10th</strong></p>
+                </div>
+                <div style="text-align: left;">
+                    <p>Breakfast</p>
+                    <p>Morning Activities</p>
+                    <p>Lunch</p>
+                    <p>Free Time / Lake</p>
+                    <p style="background-color: rgba(255, 140, 0, 0.2); padding: 8px; border-radius: 5px; margin-top: 10px;">
+                        <strong>5:00 PM - 12:00 AM</strong><br/>
+                        🎃 <strong>Wedding Reception</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box" style="text-align: center;">
+                <div style="background-color: rgba(139, 0, 0, 0.3); padding: 10px; margin: -15px -15px 15px -15px; border-radius: 8px 8px 0 0;">
+                    <h3 style="margin: 0; color: #ff6b6b;">Sunday</h3>
+                    <p style="margin: 5px 0 0 0; font-size: 1.2rem;"><strong>October 11th</strong></p>
+                </div>
+                <div style="text-align: left;">
+                    <p>Brunch</p>
+                    <p>Recovery & Relaxation</p>
+                    <p>Outdoor Activities</p>
+                    <p>Free Time</p>
+                    <p>Dinner</p>
+                    <p>Evening Entertainment</p>
+                    <p>Campfire Stories</p>
+                    <p>Quiet Hours</p>
+                </div>
+            </div>
+
+            <div class="info-box" style="text-align: center;">
+                <div style="background-color: rgba(139, 0, 0, 0.3); padding: 10px; margin: -15px -15px 15px -15px; border-radius: 8px 8px 0 0;">
+                    <h3 style="margin: 0; color: #ff6b6b;">Monday</h3>
+                    <p style="margin: 5px 0 0 0; font-size: 1.2rem;"><strong>October 12th</strong></p>
+                </div>
+                <div style="text-align: left;">
+                    <p>Breakfast</p>
+                    <p>Pack & Prepare</p>
+                    <p>Check-Out & Farewell</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="fees-section" id="fees">
+        <h2>💰 Fees</h2>
+        <p class="camp-date" style="text-align: center; font-size: 0.9rem;"><strong>Payment Due Date: August 31st</strong></p>
+        <div class="info-box">
+            <h3>Weekend Package Options</h3>
+            <p><strong>$75 per person</strong> - Day Activities, Lunches and Dinners only</p>
+            <p><strong>$150 per person</strong> - Day and Night Activities, Cabins, Breakfasts, Lunches, and Dinners</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Choose Your Payment Method</h3>
+            <p><strong>Venmo:</strong> Send to Rick at <span class="price-highlight">@@RickHellwege</span></p>
+            <p><strong>Check:</strong> Mail to 43 Pine St, Hudson, MA 01749</p>
+        </div>
+    </section>
+
+</div>
+
+@code {
+    private async Task ScrollToSection(string sectionId)
+    {
+        await JSRuntime.InvokeVoidAsync("scrollToSection", sectionId);
+    }
+}
